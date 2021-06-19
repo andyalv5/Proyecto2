@@ -9,15 +9,19 @@ package project2;
  *
  * @author andy
  */
-public class Nodo {
+public class NodoArbol {
     private Object data;
-    private Nodo right;
-    private Nodo left;
+    private NodoArbol parent;
+    private NodoArbol nodoIzq;
+    private NodoArbol nodoDer;
     private int priority;
 
-    public Nodo(Object data,int priority){
+    public NodoArbol(Object data, int priority){
         this.data=data;
         this.priority=priority;
+        this.parent=null;
+        this.nodoDer=null;
+        this.nodoIzq=null;
     }
     
     /**
@@ -35,31 +39,45 @@ public class Nodo {
     }
 
     /**
-     * @return the right
+     * @return the parent
      */
-    public Nodo getRight() {
-        return right;
+    public NodoArbol getParent() {
+        return parent;
     }
 
     /**
-     * @param right the right to set
+     * @param parent the parent to set
      */
-    public void setRight(Nodo right) {
-        this.right = right;
+    public void setParent(NodoArbol parent) {
+        this.parent = parent;
     }
 
     /**
-     * @return the left
+     * @return the nodoIzq
      */
-    public Nodo getLeft() {
-        return left;
+    public NodoArbol getNodoIzq() {
+        return nodoIzq;
     }
 
     /**
-     * @param left the left to set
+     * @param nodoIzq the nodoIzq to set
      */
-    public void setLeft(Nodo left) {
-        this.left = left;
+    public void setNodoIzq(NodoArbol nodoIzq) {
+        this.nodoIzq = nodoIzq;
+    }
+
+    /**
+     * @return the nodoDer
+     */
+    public NodoArbol getNodoDer() {
+        return nodoDer;
+    }
+
+    /**
+     * @param nodoDer the nodoDer to set
+     */
+    public void setNodoDer(NodoArbol nodoDer) {
+        this.nodoDer = nodoDer;
     }
 
     /**
@@ -75,4 +93,5 @@ public class Nodo {
     public void setPriority(int priority) {
         this.priority = priority;
     }
+    
 }

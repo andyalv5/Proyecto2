@@ -5,6 +5,8 @@
  */
 package project2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author andy
@@ -15,7 +17,12 @@ public class Project2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MonticuloMin monte =new MonticuloMin();
+        NodoArbol nodito = new NodoArbol("hola",5);
+        NodoArbol nodito2 = new NodoArbol("lol",3);
+        monte.insertar(nodito);
+        monte.insertar(nodito2);
+        JOptionPane.showMessageDialog(null,monte.returnRoot());
     }
     
 }
