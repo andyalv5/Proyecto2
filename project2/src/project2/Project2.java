@@ -24,6 +24,7 @@ public class Project2 {
         monte.insertar(nodito2);
         monte.makeAFamily();
         JOptionPane.showMessageDialog(null,monte.getpRoot().getData());
+        monte.ShowHeap();
     }
     
 }

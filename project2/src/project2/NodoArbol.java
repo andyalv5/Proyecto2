@@ -24,6 +24,7 @@ public class NodoArbol {
         this.nodoIzq=null;
     }
     
+    
     /**
      * @return the data
      */
