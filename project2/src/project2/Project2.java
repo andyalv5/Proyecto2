@@ -22,7 +22,8 @@ public class Project2 {
         NodoArbol nodito2 = new NodoArbol("lol",3);
         monte.insertar(nodito);
         monte.insertar(nodito2);
-        JOptionPane.showMessageDialog(null,monte.returnRoot());
+        monte.makeAFamily();
+        JOptionPane.showMessageDialog(null,monte.getpRoot().getData());
     }
     
 }

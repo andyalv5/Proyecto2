@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author andy
  */
 public class MonticuloMin {
+    private NodoArbol pRoot;
     private NodoArbol[] heap;
     private int size;
     private int newMax;
@@ -72,7 +73,7 @@ public class MonticuloMin {
         }
         this.heap[size]=data;
         
-        this.intercambiar(size);
+        this.intercambiar(size); 
         this.size=size+1;
     }
     
@@ -102,5 +103,32 @@ public class MonticuloMin {
             }
         }
         
+    }
+    public void makeAFamily(){
+        this.pRoot=this.heap[0];
+        NodoArbol aux = this.pRoot;
+        for(int n=0;n<this.size;n++){
+            aux=this.heap[n];
+            if(this.heap[(n*2)+1]!=null){
+                aux.setNodoIzq(this.heap[(n*2)+1]);
+            }
+            if(this.heap[(n*2)+2]!=null){
+                aux.setNodoDer(this.heap[(n*2)+2]);
+            }
+        }
+    }
+
+    /**
+     * @return the pRoot
+     */
+    public NodoArbol getpRoot() {
+        return pRoot;
+    }
+
+    /**
+     * @param pRoot the pRoot to set
+     */
+    public void setpRoot(NodoArbol pRoot) {
+        this.pRoot = pRoot;
     }
 }
