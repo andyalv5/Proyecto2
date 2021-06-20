@@ -155,36 +155,38 @@ public class MonticuloMin {
         System.setProperty("org.graphstream.ui", "swing");
         
         Graph graph = new SingleGraph("GRAFO");
-        graph.setAttribute("ui.stylesheet", "graph { padding: 40px; } edge { arrow-shape: arrow; arrow-size: 5px, 5px; } node { size: 40px; fill-color: purple, black; fill-mode: gradient-horizontal; text-alignment: at-right; text-padding: 10px, 15px; text-background-mode: rounded-box; text-background-color: #EB2; text-color: #222; } ");    
+        graph.setAttribute("ui.stylesheet", "graph { padding: 40px; } edge { arrow-shape: arrow; arrow-size: 5px, 5px; } node { size: 50px; fill-color: purple, black; fill-mode: gradient-horizontal; text-alignment: at-right; text-padding: 10px, 15px; text-background-mode: rounded-box; text-background-color: #EB2; text-color: #222; } ");    
         
         return graph;
     }
 
-    public void paintHeap(NodoArbol arbol){
-        this.monticuloGraph =this.controladorHeap();
-        NodoArbol aux = arbol;
+    public void paintHeap(NodoArbol toStart, Node dad){
+        
+        NodoArbol aux = toStart;
         if(aux!=null){
-            Node father =this.IndividualNode(monticuloGraph,aux);
+            Node father =dad;
 
             if(aux.getNodoIzq()!=null){
                 Node son = this.IndividualNode(monticuloGraph,aux.getNodoIzq());
                 this.IndividualEdge(monticuloGraph, father.getId(),son.getId());
                 if(aux.getNodoIzq().getNodoIzq()!=null){
-                    paintHeap(aux.getNodoIzq());
+                    paintHeap(aux.getNodoIzq(),son);
                 }
             }
             if(aux.getNodoDer()!=null){
                 Node daughter = this.IndividualNode(monticuloGraph,aux.getNodoDer());
                 this.IndividualEdge(monticuloGraph, father.getId(),daughter.getId());
                 if(aux.getNodoDer().getNodoDer()!=null){
-                    paintHeap(aux.getNodoDer());
+                    paintHeap(aux.getNodoDer(),daughter);
                 }
             }
         }
     }
     
     public Graph ShowHeap(){
-        paintHeap(this.pRoot);
+        this.monticuloGraph =this.controladorHeap();
+        Node father = this.IndividualNode(monticuloGraph,this.pRoot);
+        paintHeap(this.pRoot,father);
         Viewer viewer = this.monticuloGraph.display();
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
         return monticuloGraph;

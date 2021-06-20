@@ -21,9 +21,13 @@ public class Project2 {
         NodoArbol nodito = new NodoArbol("hola",5);
         NodoArbol nodito2 = new NodoArbol("lol",3);
         NodoArbol nodito3 = new NodoArbol("coca",7);
+        NodoArbol nodito4 = new NodoArbol("cola",9);
+        NodoArbol nodito5 = new NodoArbol("colas",1);
         monte.insertar(nodito);
         monte.insertar(nodito2);
         monte.insertar(nodito3);
+        monte.insertar(nodito4);
+        monte.insertar(nodito5);
         monte.makeAFamily();
         JOptionPane.showMessageDialog(null,monte.getpRoot().getNodoDer());
         monte.ShowHeap();
