@@ -138,15 +138,16 @@ public class MonticuloMin {
         this.pRoot = pRoot;
     }
     
-    public Graph IndividualEdge(Graph graph, String padre,String hijo){
-        graph.addEdge("relacion", padre, hijo,true);
-        return graph;   
+    public void IndividualEdge(Graph graph, String padre,String hijo){
+        graph.addEdge(padre+"-->"+hijo, padre, hijo,true);
+        this.monticuloGraph=graph;
     }
 
-    public void IndividualNode(Graph graph, NodoArbol cualquiera){
-       Node aux = graph.addNode(""+Integer.toString(cualquiera.getPriority()));
-       aux.setAttribute("ui.label", Integer.toString(cualquiera.getPriority()));
-       aux.setAttribute("ui.color", Integer.toString(cualquiera.getPriority()));
+    public Node IndividualNode(Graph graph, NodoArbol cualquiera){
+       Node aux = graph.addNode(""+cualquiera.getPriority());
+       aux.setAttribute("ui.label", cualquiera.getPriority());
+       aux.setAttribute("ui.color", cualquiera.getPriority());
+       return aux;
     }
     
     public Graph controladorHeap()
@@ -154,8 +155,7 @@ public class MonticuloMin {
         System.setProperty("org.graphstream.ui", "swing");
         
         Graph graph = new SingleGraph("GRAFO");
-        graph.setAttribute("ui.stylesheet", "graph { padding: 40px; } edge { arrow-shape: arrow; arrow-size: 3px, 3px; } node { size: 40px; fill-color: Orange, black; fill-mode: gradient-horizontal; text-alignment: at-right; text-padding: 10px, 15px; text-background-mode: rounded-box; text-background-color: #EB2; text-color: #222; } ");    
-        
+        graph.setAttribute("ui.stylesheet", "graph { padding: 40px; } edge { arrow-shape: arrow; arrow-size: 5px, 5px; } node { size: 40px; fill-color: purple, black; fill-mode: gradient-horizontal; text-alignment: at-right; text-padding: 10px, 15px; text-background-mode: rounded-box; text-background-color: #EB2; text-color: #222; } ");    
         
         return graph;
     }
@@ -164,20 +164,21 @@ public class MonticuloMin {
         this.monticuloGraph =this.controladorHeap();
         NodoArbol aux = arbol;
         if(aux!=null){
-            this.IndividualNode(monticuloGraph,aux);
-        }
-        if(this.pRoot.getNodoIzq()!=null){
-            this.IndividualNode(monticuloGraph,aux.getNodoIzq());
-            this.IndividualEdge(monticuloGraph, Integer.toString(aux.getPriority()),Integer.toString(aux.getNodoIzq().getPriority()));
+            Node father =this.IndividualNode(monticuloGraph,aux);
+
             if(aux.getNodoIzq()!=null){
-                paintHeap(aux.getNodoIzq());
+                Node son = this.IndividualNode(monticuloGraph,aux.getNodoIzq());
+                this.IndividualEdge(monticuloGraph, father.getId(),son.getId());
+                if(aux.getNodoIzq().getNodoIzq()!=null){
+                    paintHeap(aux.getNodoIzq());
+                }
             }
-        }
-        if(this.pRoot.getNodoDer()!=null){
-            this.IndividualNode(monticuloGraph,aux.getNodoDer());
-            this.IndividualEdge(monticuloGraph, Integer.toString(aux.getPriority()),Integer.toString(aux.getNodoDer().getPriority()));
             if(aux.getNodoDer()!=null){
-                paintHeap(aux.getNodoDer());
+                Node daughter = this.IndividualNode(monticuloGraph,aux.getNodoDer());
+                this.IndividualEdge(monticuloGraph, father.getId(),daughter.getId());
+                if(aux.getNodoDer().getNodoDer()!=null){
+                    paintHeap(aux.getNodoDer());
+                }
             }
         }
     }
