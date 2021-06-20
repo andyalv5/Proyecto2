@@ -111,11 +111,13 @@ public class MonticuloMin {
     }
     public void makeAFamily(){
         this.pRoot=this.heap[0];
-        NodoArbol aux = this.pRoot;
+        NodoArbol aux;
         
         for(int n=0;n<this.size;n++){
             aux=this.heap[n];
+            
             if(this.heap[(n*2)+1]!=null){
+                JOptionPane.showMessageDialog(null, this.heap[(n*2)+1].getPriority());
                 aux.setNodoIzq(this.heap[(n*2)+1]);
             }
             if(this.heap[(n*2)+2]!=null){
@@ -214,5 +216,17 @@ public class MonticuloMin {
             JOptionPane.showMessageDialog(null,toPrint);
         }
         
+    }
+    
+    public NodoArbol eliminarMinimo(){
+        if(this.size==0){
+            JOptionPane.showMessageDialog(null, "El arbol esta vacio");
+        }
+        NodoArbol rama = this.heap[0];
+        heap[0]=heap[this.size-1];
+        heap[this.size-1]=null;
+        this.intercambiar(0);
+        this.size--;
+        return rama;
     }
 }
