@@ -200,4 +200,19 @@ public class MonticuloMin {
         paintHeap(this.pRoot,father,posx,posy);
         return monticuloGraph;
     }
+    
+    public void pntAllelmnt(){
+        String toPrint ="";
+        if(this.size==0){
+         JOptionPane.showMessageDialog(null,"The list is empty");
+        }
+        else{
+            toPrint+= "[" +this.heap[0].getPriority()+"]";
+            for(int i=1;i<size;i++){
+                toPrint+= " --->" +" ["+this.heap[i].getPriority()+"]";
+            }
+            JOptionPane.showMessageDialog(null,toPrint);
+        }
+        
+    }
 }

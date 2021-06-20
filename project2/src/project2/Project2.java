@@ -36,7 +36,9 @@ public class Project2 {
         monte.insertar(nodito8);
         monte.makeAFamily();
         JOptionPane.showMessageDialog(null,monte.getpRoot().getNodoDer().getNodoIzq().getPriority());
+        monte.pntAllelmnt();
         monte.ShowHeap();
+        
     }
     
 }
