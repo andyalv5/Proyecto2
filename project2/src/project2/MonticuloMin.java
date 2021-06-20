@@ -147,6 +147,7 @@ public class MonticuloMin {
        Node aux = graph.addNode(""+cualquiera.getPriority());
        aux.setAttribute("ui.label", cualquiera.getPriority());
        aux.setAttribute("ui.color", cualquiera.getPriority());
+       
        return aux;
     }
     
@@ -155,29 +156,37 @@ public class MonticuloMin {
         System.setProperty("org.graphstream.ui", "swing");
         
         Graph graph = new SingleGraph("GRAFO");
+        Viewer viewer = graph.display(false);
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        viewer.disableAutoLayout();
         graph.setAttribute("ui.stylesheet", "graph { padding: 40px; } edge { arrow-shape: arrow; arrow-size: 5px, 5px; } node { size: 50px; fill-color: white, Magenta; fill-mode: gradient-diagonal2; text-alignment: at-right; text-padding: 10px, 15px; text-background-mode: rounded-box; text-background-color: #EB2; text-color: #222; shadow-mode: plain; shadow-width: 0px; shadow-color: #999; shadow-offset: 3px, -3px;  }");    
         
         return graph;
     }
 
-    public void paintHeap(NodoArbol toStart, Node dad){
+    public void paintHeap(NodoArbol toStart, Node dad,int posx,int posy){
         
         NodoArbol aux = toStart;
         if(aux!=null){
             Node father =dad;
-
+            father.setAttribute("x", posx);
+            father.setAttribute("y", posy);
             if(aux.getNodoIzq()!=null){
                 Node son = this.IndividualNode(monticuloGraph,aux.getNodoIzq());
+                son.setAttribute("x", posx-100);
+                son.setAttribute("y", posy-100);
                 this.IndividualEdge(monticuloGraph, father.getId(),son.getId());
                 if(aux.getNodoIzq().getNodoIzq()!=null){
-                    paintHeap(aux.getNodoIzq(),son);
+                    paintHeap(aux.getNodoIzq(),son,posx-200,posy-200);
                 }
             }
             if(aux.getNodoDer()!=null){
                 Node daughter = this.IndividualNode(monticuloGraph,aux.getNodoDer());
+                daughter.setAttribute("x", posx+100);
+                daughter.setAttribute("y", posy-100);
                 this.IndividualEdge(monticuloGraph, father.getId(),daughter.getId());
                 if(aux.getNodoDer().getNodoDer()!=null){
-                    paintHeap(aux.getNodoDer(),daughter);
+                    paintHeap(aux.getNodoDer(),daughter,posx+200,posy-200);
                 }
             }
         }
@@ -185,10 +194,10 @@ public class MonticuloMin {
     
     public Graph ShowHeap(){
         this.monticuloGraph =this.controladorHeap();
+        int posx =0;
+        int posy=0;
         Node father = this.IndividualNode(monticuloGraph,this.pRoot);
-        paintHeap(this.pRoot,father);
-        Viewer viewer = this.monticuloGraph.display();
-        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        paintHeap(this.pRoot,father,posx,posy);
         return monticuloGraph;
     }
 }
