@@ -187,7 +187,7 @@ public class MonticuloMin {
                 daughter.setAttribute("x", posx+100);
                 daughter.setAttribute("y", posy-100);
                 this.IndividualEdge(monticuloGraph, father.getId(),daughter.getId());
-                if(aux.getNodoDer().getNodoDer()!=null){
+                if(aux.getNodoDer().getNodoIzq()!=null){
                     paintHeap(aux.getNodoDer(),daughter,posx+200,posy-200);
                 }
             }
@@ -228,5 +228,8 @@ public class MonticuloMin {
         this.intercambiar(0);
         this.size--;
         return rama;
+        
     }
+    
+    
 }
