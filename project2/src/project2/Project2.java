@@ -27,7 +27,6 @@ public class Project2 {
         NodoArbol nodito6 = new NodoArbol("tecno",80);
         NodoArbol nodito7 = new NodoArbol("r",65);
         NodoArbol nodito8 = new NodoArbol("toto",15);
-        NodoArbol nodito9 = new NodoArbol("totos",700);
         
         monte.insertar(nodito);
         monte.insertar(nodito2);
@@ -37,10 +36,8 @@ public class Project2 {
         monte.insertar(nodito6);
         monte.insertar(nodito7);
         monte.insertar(nodito8);
-        NodoArbol lol= monte.eliminarMinimo();
-        NodoArbol lolz= monte.eliminarMinimo();
-         NodoArbol lolzy= monte.eliminarMinimo();
-        monte.insertar(nodito9);
+        monte.eliminarMinimo();
+        
         monte.makeAFamily();
         monte.pntAllelmnt();
         monte.ShowHeap();

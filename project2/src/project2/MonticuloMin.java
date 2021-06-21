@@ -40,11 +40,11 @@ public class MonticuloMin {
     }
     
     public int leftChild(int i){
-        return (2*(i+1));
+        return ((2*i)+1);
     }
     
     public int rightChild(int i){
-        return (2*(i+1))+1;
+        return ((2*i)+2);
     }
     
     public void intercambiar(int i){
@@ -82,33 +82,6 @@ public class MonticuloMin {
         this.size=size+1;
     }
     
-    public void seleccion(int raiz){
-        boolean finalizar=false;
-        int hijo;
-        while((raiz<this.size/2)&&!finalizar){
-            if(this.leftChild(raiz)==(this.size-1)){
-                hijo = leftChild(raiz);
-            }
-            else{
-                if(this.heap[leftChild(raiz)].getPriority()<this.heap[rightChild(raiz)].getPriority()){
-                    hijo=this.leftChild(raiz);
-                }
-                else{
-                    hijo=this.rightChild(raiz);
-                }
-            }
-            if(this.heap[hijo].getPriority()<this.heap[raiz].getPriority()){
-                NodoArbol nodonew = this.heap[raiz];
-                this.heap[raiz]=this.heap[hijo];
-                this.heap[hijo]= nodonew;
-                raiz=hijo;
-            }
-            else{
-                finalizar= true;
-            }
-        }
-        
-    }
     public void makeAFamily(){
         this.pRoot=this.heap[0];
         NodoArbol aux;
@@ -117,7 +90,6 @@ public class MonticuloMin {
             aux=this.heap[n];
             
             if(this.heap[(n*2)+1]!=null){
-                JOptionPane.showMessageDialog(null, this.heap[(n*2)+1].getPriority());
                 aux.setNodoIzq(this.heap[(n*2)+1]);
             }
             if(this.heap[(n*2)+2]!=null){
@@ -218,6 +190,35 @@ public class MonticuloMin {
         
     }
     
+    public void hundir(int raiz){
+        boolean terminar=false;
+        int hijo;
+        while(raiz<(this.size/2)&&!terminar){
+            if(this.leftChild(raiz)==(this.size-1)){
+                hijo = leftChild(raiz);
+            }
+            else{
+                if(this.heap[leftChild(raiz)].getPriority()<this.heap[rightChild(raiz)].getPriority()){
+                    hijo=this.leftChild(raiz);
+                }
+                else{
+                    hijo=this.rightChild(raiz);
+                }
+            }
+            if(this.heap[hijo].getPriority()<this.heap[raiz].getPriority()){
+                NodoArbol nod = this.heap[raiz];
+                this.heap[raiz]=this.heap[hijo];
+                this.heap[hijo]=nod;
+                raiz++;
+            } 
+            else{
+                terminar=true;
+            }
+        }
+    }
+    
+    
+    
     public NodoArbol eliminarMinimo(){
         if(this.size==0){
             JOptionPane.showMessageDialog(null, "El arbol esta vacio");
@@ -225,8 +226,8 @@ public class MonticuloMin {
         NodoArbol rama = this.heap[0];
         heap[0]=heap[this.size-1];
         heap[this.size-1]=null;
-        this.intercambiar(0);
         this.size--;
+        hundir(0);
         return rama;
         
     }
