@@ -6,19 +6,22 @@
 package Interfaces;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import project2.ListaDoc;
 
 /**
  *
  * @author Jose
  */
 public class VentanaAgregarDocumento extends javax.swing.JFrame {
-
+    public ListaDoc lis;
     /**
      * Creates new form VentanaAgregarDocumento
      */
     public VentanaAgregarDocumento() {
-        
         initComponents();
+        ListaDoc list=new ListaDoc();
+        this.lis= list;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
@@ -37,9 +40,9 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        campoNombre = new javax.swing.JTextField();
-        campoTamaño = new javax.swing.JTextField();
-        campoTipo = new javax.swing.JTextField();
+        nomDoc = new javax.swing.JTextField();
+        sizeDoc = new javax.swing.JTextField();
+        DocTy = new javax.swing.JTextField();
         campoID = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
 
@@ -57,7 +60,18 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
 
         jLabel5.setText("TIPO DE DOCUMENTO:");
 
+        nomDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomDocActionPerformed(evt);
+            }
+        });
+
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +88,7 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(campoNombre))
+                                .addComponent(nomDoc))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
@@ -85,11 +99,11 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(18, 18, 18)
-                                        .addComponent(campoTipo))
+                                        .addComponent(DocTy))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
-                                        .addComponent(campoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(sizeDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,15 +118,15 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(campoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sizeDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(campoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DocTy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnAgregar)
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -120,6 +134,19 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nomDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomDocActionPerformed
+        
+    }//GEN-LAST:event_nomDocActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        
+        String tipo=this.DocTy.getText();
+        String name=this.nomDoc.getText();
+        int size =Integer.parseInt(this.sizeDoc.getText());
+        lis.addDoc(name, size, tipo);
+        lis.pntAllelmnt();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,16 +184,16 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DocTy;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JTextField campoID;
-    private javax.swing.JTextField campoNombre;
-    private javax.swing.JTextField campoTamaño;
-    private javax.swing.JTextField campoTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nomDoc;
+    private javax.swing.JTextField sizeDoc;
     // End of variables declaration//GEN-END:variables
 }

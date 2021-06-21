@@ -42,7 +42,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="campoNombre" max="32767" attributes="0"/>
+                              <Component id="nomDoc" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -55,12 +55,12 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="campoTipo" max="32767" attributes="0"/>
+                                      <Component id="DocTy" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="campoTamaño" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <Component id="sizeDoc" min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -84,17 +84,17 @@
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="campoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nomDoc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="campoTamaño" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sizeDoc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="campoTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DocTy" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
@@ -129,11 +129,14 @@
         <Property name="text" type="java.lang.String" value="TIPO DE DOCUMENTO:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="campoNombre">
+    <Component class="javax.swing.JTextField" name="nomDoc">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomDocActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="campoTama&#xf1;o">
+    <Component class="javax.swing.JTextField" name="sizeDoc">
     </Component>
-    <Component class="javax.swing.JTextField" name="campoTipo">
+    <Component class="javax.swing.JTextField" name="DocTy">
     </Component>
     <Component class="javax.swing.JTextField" name="campoID">
     </Component>
@@ -141,6 +144,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
