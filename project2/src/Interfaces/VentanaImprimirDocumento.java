@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import javax.swing.JFrame;
 import project2.MonticuloMin;
 import project2.NodoArbol;
 
@@ -19,6 +20,7 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
      */
     public VentanaImprimirDocumento() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

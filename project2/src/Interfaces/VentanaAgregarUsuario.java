@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Jose
@@ -16,6 +18,7 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
      */
     public VentanaAgregarUsuario() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

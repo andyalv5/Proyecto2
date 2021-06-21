@@ -5,18 +5,57 @@
  */
 package Interfaces;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
+
 /**
  *
  * @author Jose
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    
+    private Timer t;
+    private int dias;
+    private int horas;
+    private int minutos;
+    private int segundos;
+    private ActionListener action =new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            segundos++;
+            if(segundos==60){
+                segundos=0;
+                minutos++;
+            }
+            if(minutos==60){
+                minutos=0;
+                horas++;
+            }
+            if(horas==24){
+                horas=0;
+                dias++;
+            }
+            actualizar();
+        }
+    };
     /**
      * Creates new form VentanaPrincipal
      */
+    
+    private void actualizar(){
+        String time="Dias: "+dias+" Horas: "+ (horas<=9?"0":"")+horas +" Minutos: "+ (minutos<=9?"0":"")+minutos +" Segundos: "+ (segundos<=9?"0":"")+segundos;
+        this.reloj.setText(time);
+                
+    }
+    
     public VentanaPrincipal() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
+        t=new Timer(1000,action);
+        t.start();
     }
 
     /**
@@ -35,6 +74,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnImprimir = new javax.swing.JButton();
         btnDelDocumento = new javax.swing.JButton();
         btnDelUsuario = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        reloj = new javax.swing.JLabel();
 
         jButton1.setText("ELIMINAR USUARIO");
 
@@ -77,39 +118,56 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("reloj:");
+
+        reloj.setText("00:00:00:00");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(163, 163, 163))
             .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAggDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAggUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDelDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(reloj))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAggDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAggUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(jLabel1)))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(btnAggUsuario)
-                .addGap(18, 18, 18)
-                .addComponent(btnDelUsuario)
-                .addGap(18, 18, 18)
-                .addComponent(btnAggDocumento)
-                .addGap(18, 18, 18)
-                .addComponent(btnDelDocumento)
-                .addGap(18, 18, 18)
-                .addComponent(btnImprimir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAggUsuario)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelUsuario)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAggDocumento)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelDocumento)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnImprimir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(reloj))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -189,5 +247,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel reloj;
     // End of variables declaration//GEN-END:variables
 }

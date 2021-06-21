@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Jose
@@ -15,7 +17,9 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
      * Creates new form VentanaAgregarDocumento
      */
     public VentanaAgregarDocumento() {
+        
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

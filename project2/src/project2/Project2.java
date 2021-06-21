@@ -6,18 +6,20 @@
 package project2;
 
 import Interfaces.VentanaImprimirDocumento;
+import Interfaces.VentanaPrincipal;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author andy
  */
 public class Project2 {
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        VentanaPrincipal inicial =new VentanaPrincipal();
+        inicial.setVisible(true);
         MonticuloMin monte =new MonticuloMin();
         NodoArbol nodito = new NodoArbol("hola",5);
         NodoArbol nodito2 = new NodoArbol("lol",3);
@@ -36,6 +38,7 @@ public class Project2 {
         monte.insertar(nodito6);
         monte.insertar(nodito7);
         monte.insertar(nodito8);
+        monte.eliminarMinimo();
         monte.eliminarMinimo();
         
         monte.makeAFamily();
