@@ -5,9 +5,15 @@
  */
 package Interfaces;
 
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import project2.Funciones;
 import project2.MonticuloMin;
 import project2.NodoArbol;
+import project2.Users;
+
 
 /**
  *
@@ -15,6 +21,8 @@ import project2.NodoArbol;
  */
 public class VentanaImprimirDocumento extends javax.swing.JFrame {
 
+    public File fichero;
+    
     /**
      * Creates new form VentanaImprimirDocumento
      */
@@ -64,7 +72,17 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        Funciones fc = new Funciones();
+        JFileChooser fx = new JFileChooser();
+
+        int seleccion = fx.showOpenDialog(this);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+
+            fichero = fx.getSelectedFile();
+            Users u=fc.Leer_csv(fichero);
+            fc.writeTxt(u);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
