@@ -105,6 +105,14 @@ public class Funciones {
         writeTxt(listaUser);
     }
     
+    public void writeProdTxt(NodoUsers nodo){
+        Funciones fun = new Funciones();
+        File f=new File("test//producto.csv");
+        Users listaUser=fun.LeerProductosCsv(f);
+        listaUser.addAtEnd(nodo);
+        writeProductTxt(listaUser);
+    }
+    
     public void writeProductTxt(Users lista){
         String txt ="";
         

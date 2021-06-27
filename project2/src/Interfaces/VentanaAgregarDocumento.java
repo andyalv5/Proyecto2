@@ -170,19 +170,15 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         
         Funciones fun = new Funciones();
         NodoUsers Usuario= this.usList.BuscarUser(Chooser.getSelectedItem().toString());
-        if(Usuario!=null){
-            this.lis= Usuario.getDocuments();
-        }
+        this.lis= Usuario.getDocuments();
         if(lis==null){
-        lis= new ListaDoc();
+            lis= new ListaDoc();
         }
         String tipo=this.DocTy.getText();
         String name=this.nomDoc.getText();
         int size =Integer.parseInt(this.sizeDoc.getText());
         lis.addDoc(name, size, tipo);
-        if(Usuario!=null){
-            Usuario.setDocuments(lis);
-        }
+        Usuario.setDocuments(lis);
         fun.writeProductTxt(usList);
         
     }//GEN-LAST:event_btnAgregarActionPerformed
