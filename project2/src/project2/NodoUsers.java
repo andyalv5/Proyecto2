@@ -3,7 +3,6 @@ package project2;
 public class NodoUsers {
     private String user;
     private String priority;
-    private ListaDoc cola;
     private ListaDoc documents;
     private NodoUsers next;
     private NodoUsers previous;
@@ -43,20 +42,6 @@ public class NodoUsers {
 
     public void setPrevious(NodoUsers previous) {
         this.previous = previous;
-    }
-
-    /**
-     * @return the cola
-     */
-    public ListaDoc getCola() {
-        return cola;
-    }
-
-    /**
-     * @param cola the cola to set
-     */
-    public void setCola(ListaDoc cola) {
-        this.cola = cola;
     }
 
     /**

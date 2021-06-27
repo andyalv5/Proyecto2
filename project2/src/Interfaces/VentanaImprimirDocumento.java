@@ -22,7 +22,7 @@ import project2.Users;
 public class VentanaImprimirDocumento extends javax.swing.JFrame {
 
     public File fichero;
-    
+    public Users usuario;
     /**
      * Creates new form VentanaImprimirDocumento
      */
@@ -31,6 +31,14 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
+    public void setUsuario(Users usuario){
+        this.usuario = usuario;
+    }
+    
+    public Users getUsuario(){
+        return this.usuario;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,8 +88,8 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         if (seleccion == JFileChooser.APPROVE_OPTION) {
 
             fichero = fx.getSelectedFile();
-            Users u=fc.Leer_csv(fichero);
-            fc.writeTxt(u);
+            usuario=fc.Leer_csv(fichero);
+            fc.writeTxt(usuario);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
