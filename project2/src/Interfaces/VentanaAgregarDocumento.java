@@ -5,9 +5,13 @@
  */
 package Interfaces;
 
+import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import project2.Funciones;
 import project2.ListaDoc;
+import project2.NodoUsers;
+import project2.Users;
 
 /**
  *
@@ -15,14 +19,30 @@ import project2.ListaDoc;
  */
 public class VentanaAgregarDocumento extends javax.swing.JFrame {
     public ListaDoc lis;
+    public Users usList;
     /**
      * Creates new form VentanaAgregarDocumento
      */
     public VentanaAgregarDocumento() {
         initComponents();
-        ListaDoc list=new ListaDoc();
-        this.lis= list;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Funciones fun =new Funciones();
+        File f=new File("test//new.csv");
+        
+        Users listaUser=fun.Leer_csv(f);
+        String usuarios =listaUser.returnUsers();
+        String priority =listaUser.returnStatus();
+        String[] user = usuarios.split(",");
+        Chooser.setModel(new javax.swing.DefaultComboBoxModel(user));
+        
+        File file =new File("test//productos.csv");
+        usList=new Users();
+        if(file.canRead()){
+            usList=fun.LeerProductosCsv(file);
+        }
+        else{
+            usList.createList(usuarios, priority);
+        }
     }
 
     /**
@@ -43,8 +63,8 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         nomDoc = new javax.swing.JTextField();
         sizeDoc = new javax.swing.JTextField();
         DocTy = new javax.swing.JTextField();
-        campoID = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
+        Chooser = new javax.swing.JComboBox<>();
 
         jTextField1.setText("jTextField1");
 
@@ -73,6 +93,13 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
             }
         });
 
+        Chooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Chooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChooserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,8 +118,8 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
                                 .addComponent(nomDoc))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(campoID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
+                                .addComponent(Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnAgregar)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -111,11 +138,11 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(campoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(nomDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -141,12 +168,28 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         
+        Funciones fun = new Funciones();
+        NodoUsers Usuario= this.usList.BuscarUser(Chooser.getSelectedItem().toString());
+        if(Usuario!=null){
+            this.lis= Usuario.getDocuments();
+        }
+        if(lis==null){
+        lis= new ListaDoc();
+        }
         String tipo=this.DocTy.getText();
         String name=this.nomDoc.getText();
         int size =Integer.parseInt(this.sizeDoc.getText());
         lis.addDoc(name, size, tipo);
-        lis.pntAllelmnt();
+        if(Usuario!=null){
+            Usuario.setDocuments(lis);
+        }
+        fun.writeProductTxt(usList);
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void ChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChooserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,9 +227,9 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Chooser;
     private javax.swing.JTextField DocTy;
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JTextField campoID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

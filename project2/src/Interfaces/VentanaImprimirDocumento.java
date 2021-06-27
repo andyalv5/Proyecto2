@@ -22,7 +22,7 @@ import project2.Users;
 public class VentanaImprimirDocumento extends javax.swing.JFrame {
 
     public File fichero;
-    public Users usuario;
+    public Users usuarios;
     /**
      * Creates new form VentanaImprimirDocumento
      */
@@ -31,12 +31,9 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
-    public void setUsuario(Users usuario){
-        this.usuario = usuario;
-    }
-    
-    public Users getUsuario(){
-        return this.usuario;
+    public void sendUserList(Users usuario){
+        
+        
     }
     
     /**
@@ -88,8 +85,10 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         if (seleccion == JFileChooser.APPROVE_OPTION) {
 
             fichero = fx.getSelectedFile();
-            usuario=fc.Leer_csv(fichero);
-            fc.writeTxt(usuario);
+            usuarios=fc.Leer_csv(fichero);
+            fc.writeTxt(usuarios);
+            File f=new File("test//new.csv");
+            fichero.renameTo(f);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

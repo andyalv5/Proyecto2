@@ -73,5 +73,48 @@ public class Users {
         
     }   
     
+    public String returnUsers(){
+        String almacenes = "";
+        NodoUsers temp = this.first;
+        while(temp!=null){
+            almacenes+= temp.getUser() +",";
+            temp = temp.getNext();
+        }
+        return almacenes;
+    }
     
+    public String returnStatus(){
+        String almacenes = "";
+        NodoUsers temp = this.first;
+        while(temp!=null){
+            almacenes+= temp.getPriority() +",";
+            temp = temp.getNext();
+        }
+        return almacenes;
+    }
+    
+    public void createList(String users, String priority){
+        String[] usuario =users.split(",");
+        String[] prioridad =priority.split(",");
+        for(int i =0;i<usuario.length;i++){
+            NodoUsers nodoTemp = new NodoUsers(usuario[i],prioridad[i]);
+            this.addAtEnd(nodoTemp);
+        }
+    }
+    
+    public NodoUsers BuscarUser(String searched){
+        
+        NodoUsers aux;
+        try{
+            for(aux=this.first;aux !=null;aux=aux.getNext()){
+                if(searched.equals(aux.getUser())){
+                    return aux;
+                } 
+            }     
+        }
+        catch(Exception e){
+            return null;
+        }
+        return null;
+    }
 }

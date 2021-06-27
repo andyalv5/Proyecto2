@@ -5,20 +5,31 @@
  */
 package Interfaces;
 
+import java.io.File;
 import javax.swing.JFrame;
+import project2.Funciones;
+import project2.Users;
 
 /**
  *
  * @author Jose
  */
 public class VentanaEliminarUsuario extends javax.swing.JFrame {
-
+    private String usuarios;
+            
     /**
      * Creates new form VentanaEliminarUsuario
      */
     public VentanaEliminarUsuario() {
+        this.setLocationRelativeTo(null);
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Funciones fun =new Funciones();
+        File f=new File("test//new.csv");
+        Users listaUser=fun.Leer_csv(f);
+        usuarios =listaUser.returnUsers();
+        String[] user = usuarios.split(",");
+        Selector.setModel(new javax.swing.DefaultComboBoxModel(user));
     }
 
     /**
@@ -32,8 +43,8 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        campoID = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        Selector = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +56,13 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        Selector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Selector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectorActionPerformed(evt);
             }
         });
 
@@ -62,8 +80,9 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(campoID, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(Selector, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -71,11 +90,11 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(campoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(Selector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addComponent(jButton1)
                 .addGap(30, 30, 30))
         );
@@ -84,8 +103,17 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Funciones fun=new Funciones();
+        String toDel = Selector.getSelectedItem().toString();
+        String user =fun.writeTxt(toDel);
+        String[] users = user.split(",");
+        Selector.setModel(new javax.swing.DefaultComboBoxModel(users));
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void SelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,7 +151,7 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField campoID;
+    private javax.swing.JComboBox<String> Selector;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
