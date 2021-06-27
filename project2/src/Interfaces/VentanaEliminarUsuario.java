@@ -7,6 +7,7 @@ package Interfaces;
 
 import java.io.File;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import project2.Funciones;
 import project2.Users;
 
@@ -108,6 +109,12 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         String user =fun.writeTxt(toDel);
         String[] users = user.split(",");
         Selector.setModel(new javax.swing.DefaultComboBoxModel(users));
+        
+        File file = new File("test//productos.csv");
+        Users productos=fun.LeerProductosCsv(file);
+        productos.delByName(toDel);
+        JOptionPane.showMessageDialog(null, productos.getFirst().getPriority());
+        fun.writeProductTxt(productos);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

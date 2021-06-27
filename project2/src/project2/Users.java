@@ -117,4 +117,38 @@ public class Users {
         }
         return null;
     }
+    
+    public void delByName(String name){
+        if(name.equals(this.first.getUser())){
+            this.first = this.first.getNext();
+        }
+        else if(name.equals(this.last.getUser())){
+            delAtEnd();
+        }
+        else{
+            int contador =0;
+            NodoUsers nodoTmp = this.first;
+            while(contador < size-1 && nodoTmp.getNext() !=null){
+                if(name.equals(nodoTmp.getNext().getUser())){
+                    nodoTmp.setNext(nodoTmp.getNext().getNext());
+                }
+                nodoTmp = nodoTmp.getNext(); 
+            }
+        }
+        size--;
+    }
+    
+    public void delAtEnd(){
+        NodoUsers temp= this.first;
+        if(this.first == this.last){
+            this.first = this.last = null;
+        }
+        else{
+            while(temp.getNext()!=this.last){
+                temp = temp.getNext();
+            }
+        this.last =temp;
+        this.last.setNext(null);
+        }
+    }
 }

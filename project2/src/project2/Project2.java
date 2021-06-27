@@ -22,6 +22,13 @@ public class Project2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Funciones fun =new Funciones();
+        File file = new File("test//productos.csv");
+        Users productos=fun.LeerProductosCsv(file);
+        productos.delByName("");
+        JOptionPane.showMessageDialog(null, productos.getFirst().getPriority());
+        fun.writeProductTxt(productos);
 //        Scanner entrada = null;
 //        JFileChooser fileChooser = new JFileChooser();
 //        fileChooser.showOpenDialog(fileChooser);
