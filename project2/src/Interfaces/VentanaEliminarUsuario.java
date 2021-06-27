@@ -110,11 +110,11 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         String[] users = user.split(",");
         Selector.setModel(new javax.swing.DefaultComboBoxModel(users));
         
-        File file = new File("test//productos.csv");
-        Users productos=fun.LeerProductosCsv(file);
-        productos.delByName(toDel);
-        JOptionPane.showMessageDialog(null, productos.getFirst().getPriority());
-        fun.writeProductTxt(productos);
+        File newfile= new File("test//new.csv");
+        Users lista = fun.Leer_csv(newfile);
+        fun.writeProductTxt(lista);
+        
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -5,9 +5,11 @@
  */
 package Interfaces;
 
+import java.io.File;
 import javax.swing.JFrame;
 import project2.Funciones;
 import project2.NodoUsers;
+import project2.Users;
 
 /**
  *
@@ -26,6 +28,7 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
         priority[1]=" prioridad_media";
         priority[2]=" prioridad_baja";
         sel.setModel(new javax.swing.DefaultComboBoxModel(priority));
+        
     }
 
     /**
@@ -122,6 +125,9 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
         Funciones fun = new Funciones();
         NodoUsers nodo =new NodoUsers(campoNombre.getText(),sel.getSelectedItem().toString());
         fun.writeTxt(nodo);
+        File newfile= new File("test//new.csv");
+        Users lista = fun.Leer_csv(newfile);
+        fun.writeProductTxt(lista);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void selActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selActionPerformed

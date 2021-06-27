@@ -169,7 +169,9 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         
         Funciones fun = new Funciones();
+        
         NodoUsers Usuario= this.usList.BuscarUser(Chooser.getSelectedItem().toString());
+        JOptionPane.showMessageDialog(null,Usuario);
         this.lis= Usuario.getDocuments();
         if(lis==null){
             lis= new ListaDoc();

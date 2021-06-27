@@ -144,8 +144,11 @@ public class Funciones {
 
     }  
     
+    
+    
     public Users LeerProductosCsv(File file){
         Users lista = new Users();
+        ListaDoc lis=new ListaDoc();
         String line;
         String infotd = "";
         
@@ -171,19 +174,18 @@ public class Funciones {
                 
                 if(!"".equals(infotd)){
                     String[] newString = infotd.split("@%");
-                    for(int i =0;i<newString.length; i++){
+                    for(int i =0;i<newString.length+1; i++){
                         if(!newString[i].equals("") ){
                             String[] product= newString[i].split("-");
                             String[] productos = product[0].split(",");
-                            JOptionPane.showMessageDialog(null, productos[0]);
                             NodoUsers nodo= new NodoUsers(productos[0],productos[1]);
-                            
-                            ListaDoc lis=new ListaDoc();
-                            for(int j=1;j<product.length;j++){
-                                if(product[j]!=null){
-                                    String[] productw = product[j].split(",");
-                                    lis.addDoc(productw[0],Integer.parseInt(productw[2]),productw[1]);
-                                }
+                            lista.addElementbegin(nodo);
+                            for(int j=1;j<product.length+1;j++){
+                                String[] productw = product[j].split(",");
+                                JOptionPane.showMessageDialog(null, productw[1]);
+                                NodoDoc nod= new NodoDoc(productw[1],Integer.parseInt(productw[2]),productw[3]);
+                                lis.addAtEnd(nod);
+                                
                             nodo.setDocuments(lis);
                             lista.addAtEnd(nodo);
                             }
@@ -191,7 +193,7 @@ public class Funciones {
                     }
                 }
                 br.close();
-            } 
+            }
         }
                 
         catch(Exception e){

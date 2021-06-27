@@ -79,6 +79,7 @@ public class ListaDoc {
      public void addElementbegin(NodoDoc newNodo){
         if(this.IsEmpty()){
             pFirst=pLast= newNodo;
+            size++;
         }
         else{
             NodoDoc pNew= pFirst; 
@@ -107,41 +108,6 @@ public class ListaDoc {
         return null;
     }
      
-     
-    public void delAtEnd(){
-        NodoDoc temp= pFirst;
-        if(pFirst == pLast){
-            pFirst = pLast = null;
-        }
-        else{
-            while(temp.getpNext()!=pLast){
-                temp = temp.getpNext();
-            }
-        pLast =temp;
-        pLast.setpNext(null);
-        }
-    }
-   
-    
-    public void delByName(String name){
-        if(name.equals(this.pFirst.getNombre())){
-            this.pFirst = this.pFirst.getpNext();
-        }
-        else if(name.equals(this.pLast.getNombre())){
-            delAtEnd();
-        }
-        else{
-            int contador =0;
-            NodoDoc nodoTmp = this.pFirst;
-            while(contador < size-1 && nodoTmp.getpNext() !=null){
-                if(name.equals(nodoTmp.getpNext().getNombre())){
-                    nodoTmp.setpNext(nodoTmp.getpNext().getpNext());
-                }
-                nodoTmp = nodoTmp.getpNext(); 
-            }
-        }
-        size--;
-    }
     
     public void addDoc(String nombre,int size, String tipo){
         NodoDoc nod =new NodoDoc(nombre,size,tipo);

@@ -7,6 +7,9 @@ public class NodoUsers {
     private NodoUsers next;
     private NodoUsers previous;
 
+    public NodoUsers(){
+    
+    }
     public NodoUsers(String user, String priority) {
         this.user = user;
         this.priority = priority;

@@ -104,16 +104,12 @@ public class Users {
     
     public NodoUsers BuscarUser(String searched){
         
-        NodoUsers aux;
-        try{
-            for(aux=this.first;aux !=null;aux=aux.getNext()){
-                if(searched.equals(aux.getUser())){
-                    return aux;
-                } 
-            }     
-        }
-        catch(Exception e){
-            return null;
+        NodoUsers aux=this.first;
+        while(aux!=null){
+            if(searched.equals(aux.getUser())){
+                return aux;
+            }
+            aux=aux.getNext();
         }
         return null;
     }
@@ -123,7 +119,7 @@ public class Users {
             this.first = this.first.getNext();
         }
         else if(name.equals(this.last.getUser())){
-            delAtEnd();
+            this.last=null;
         }
         else{
             int contador =0;
@@ -151,4 +147,6 @@ public class Users {
         this.last.setNext(null);
         }
     }
+    
+   
 }
