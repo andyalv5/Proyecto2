@@ -9,6 +9,7 @@ import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import project2.Funciones;
+import project2.NodoUsers;
 import project2.Users;
 
 /**
@@ -112,6 +113,7 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         
         File newfile= new File("test//new.csv");
         Users lista = fun.Leer_csv(newfile);
+        
         fun.writeProductTxt(lista);
         
         
