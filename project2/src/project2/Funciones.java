@@ -174,13 +174,13 @@ public class Funciones {
                 
                 if(!"".equals(infotd)){
                     String[] newString = infotd.split("@%");
-                    for(int i =0;i<newString.length+1; i++){
+                    for(int i =0;i<newString.length; i++){
                         if(!newString[i].equals("") ){
                             String[] product= newString[i].split("-");
                             String[] productos = product[0].split(",");
                             NodoUsers nodo= new NodoUsers(productos[0],productos[1]);
-                            lista.addElementbegin(nodo);
-                            for(int j=1;j<product.length+1;j++){
+                            lista.addAtEnd(nodo);
+                            for(int j=1;j<product.length;j++){
                                 String[] productw = product[j].split(",");
                                 JOptionPane.showMessageDialog(null, productw[1]);
                                 NodoDoc nod= new NodoDoc(productw[1],Integer.parseInt(productw[2]),productw[3]);

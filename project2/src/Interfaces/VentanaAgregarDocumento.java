@@ -36,13 +36,7 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         Chooser.setModel(new javax.swing.DefaultComboBoxModel(user));
         
         File file =new File("test//productos.csv");
-        usList=new Users();
-        if(file.canRead()){
-            usList=fun.LeerProductosCsv(file);
-        }
-        else{
-            usList.createList(usuarios, priority);
-        }
+        usList=fun.LeerProductosCsv(file);
     }
 
     /**
