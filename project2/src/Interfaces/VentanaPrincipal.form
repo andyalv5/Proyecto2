@@ -46,6 +46,8 @@
                           <Component id="btnAggUsuario" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnDelUsuario" max="32767" attributes="0"/>
                           <Component id="btnDelDocumento" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnImprimir1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnImprimir2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -53,7 +55,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="123" max="32767" attributes="0"/>
+              <EmptySpace pref="143" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,7 +85,11 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnImprimir1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnImprimir2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -143,6 +149,22 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="00:00:00:00"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnImprimir1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="VER LA COLA DE IMPRESION"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimir1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnImprimir2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CARGAR DATOS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimir2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

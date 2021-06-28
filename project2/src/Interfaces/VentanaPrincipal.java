@@ -8,7 +8,12 @@ package Interfaces;
 import static Interfaces.VentanaAgregarDocumento.listaDocs;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.Timer;
+import project2.Funciones;
+import project2.MonticuloMin;
+import project2.NodoArbol;
 import project2.NodoDoc;
 import project2.Users;
 
@@ -18,6 +23,8 @@ import project2.Users;
  * @author Jose
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+    public File fichero;
+    public Users usuarios;
     
     private Timer t;
     private int dias;
@@ -85,6 +92,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnDelUsuario = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         reloj = new javax.swing.JLabel();
+        btnImprimir1 = new javax.swing.JButton();
+        btnImprimir2 = new javax.swing.JButton();
 
         jButton1.setText("ELIMINAR USUARIO");
 
@@ -131,6 +140,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         reloj.setText("00:00:00:00");
 
+        btnImprimir1.setText("VER LA COLA DE IMPRESION");
+        btnImprimir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimir1ActionPerformed(evt);
+            }
+        });
+
+        btnImprimir2.setText("CARGAR DATOS");
+        btnImprimir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimir2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -149,11 +172,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(btnAggDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAggUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDelDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnDelDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnImprimir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnImprimir2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(jLabel1)))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +202,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(reloj))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnImprimir1)
+                .addGap(18, 18, 18)
+                .addComponent(btnImprimir2)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -221,6 +250,50 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         vendeldoc.setVisible(true);
     }//GEN-LAST:event_btnDelDocumentoActionPerformed
 
+    private void btnImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir1ActionPerformed
+        
+        MonticuloMin monte =new MonticuloMin();
+        NodoArbol nodito = new NodoArbol("hola",5);
+        NodoArbol nodito2 = new NodoArbol("lol",3);
+        NodoArbol nodito3 = new NodoArbol("coca",7);
+        NodoArbol nodito4 = new NodoArbol("cola",9);
+        NodoArbol nodito5 = new NodoArbol("colas",10);
+        NodoArbol nodito6 = new NodoArbol("tecno",80);
+        NodoArbol nodito7 = new NodoArbol("r",65);
+        NodoArbol nodito8 = new NodoArbol("toto",15);
+        
+        monte.insertar(nodito);
+        monte.insertar(nodito2);
+        monte.insertar(nodito3);
+        monte.insertar(nodito4);
+        monte.insertar(nodito5);
+        monte.insertar(nodito6);
+        monte.insertar(nodito7);
+        monte.insertar(nodito8);
+        monte.eliminarMinimo();
+        monte.eliminarMinimo();
+        
+        monte.makeAFamily();
+        monte.pntAllelmnt();
+        monte.ShowHeap();
+    }//GEN-LAST:event_btnImprimir1ActionPerformed
+
+    private void btnImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir2ActionPerformed
+        Funciones fc = new Funciones();
+        JFileChooser fx = new JFileChooser();
+
+        int seleccion = fx.showOpenDialog(this);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+
+            fichero = fx.getSelectedFile();
+            usuarios=fc.Leer_csv(fichero);
+            fc.writeTxt(usuarios);
+            File f=new File("test//new.csv");
+            fichero.renameTo(f);
+        }
+    }//GEN-LAST:event_btnImprimir2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,6 +335,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnDelDocumento;
     private javax.swing.JButton btnDelUsuario;
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnImprimir1;
+    private javax.swing.JButton btnImprimir2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -49,30 +49,6 @@ public class Project2 {
         
         VentanaPrincipal inicial =new VentanaPrincipal();
         inicial.setVisible(true);
-        MonticuloMin monte =new MonticuloMin();
-        NodoArbol nodito = new NodoArbol("hola",5);
-        NodoArbol nodito2 = new NodoArbol("lol",3);
-        NodoArbol nodito3 = new NodoArbol("coca",7);
-        NodoArbol nodito4 = new NodoArbol("cola",9);
-        NodoArbol nodito5 = new NodoArbol("colas",10);
-        NodoArbol nodito6 = new NodoArbol("tecno",80);
-        NodoArbol nodito7 = new NodoArbol("r",65);
-        NodoArbol nodito8 = new NodoArbol("toto",15);
-        
-        monte.insertar(nodito);
-        monte.insertar(nodito2);
-        monte.insertar(nodito3);
-        monte.insertar(nodito4);
-        monte.insertar(nodito5);
-        monte.insertar(nodito6);
-        monte.insertar(nodito7);
-        monte.insertar(nodito8);
-        monte.eliminarMinimo();
-        monte.eliminarMinimo();
-        
-        monte.makeAFamily();
-        monte.pntAllelmnt();
-        monte.ShowHeap();
         
     }
     

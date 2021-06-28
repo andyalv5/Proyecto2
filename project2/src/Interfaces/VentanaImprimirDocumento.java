@@ -21,8 +21,7 @@ import project2.Users;
  */
 public class VentanaImprimirDocumento extends javax.swing.JFrame {
 
-    public File fichero;
-    public Users usuarios;
+    
     /**
      * Creates new form VentanaImprimirDocumento
      */
@@ -77,19 +76,7 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Funciones fc = new Funciones();
-        JFileChooser fx = new JFileChooser();
-
-        int seleccion = fx.showOpenDialog(this);
-
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-
-            fichero = fx.getSelectedFile();
-            usuarios=fc.Leer_csv(fichero);
-            fc.writeTxt(usuarios);
-            File f=new File("test//new.csv");
-            fichero.renameTo(f);
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
