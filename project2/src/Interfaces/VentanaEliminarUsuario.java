@@ -18,6 +18,7 @@ import project2.Users;
  */
 public class VentanaEliminarUsuario extends javax.swing.JFrame {
     private String usuarios;
+    public static Users usuarioToDel;
             
     /**
      * Creates new form VentanaEliminarUsuario
@@ -32,6 +33,7 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         usuarios =listaUser.returnUsers();
         String[] user = usuarios.split(",");
         Selector.setModel(new javax.swing.DefaultComboBoxModel(user));
+        usuarioToDel=VentanaAgregarDocumento.enviar();
     }
 
     /**
@@ -112,9 +114,8 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         Selector.setModel(new javax.swing.DefaultComboBoxModel(users));
         
         File newfile= new File("test//new.csv");
-        Users lista = fun.Leer_csv(newfile);
+        fun.Leer_csv(newfile);
         
-        fun.writeProductTxt(lista);
         
         
         

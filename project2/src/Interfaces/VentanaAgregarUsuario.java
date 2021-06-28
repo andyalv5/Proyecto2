@@ -16,6 +16,15 @@ import project2.Users;
  * @author Jose
  */
 public class VentanaAgregarUsuario extends javax.swing.JFrame {
+    public static Users usuario;
+    
+    
+    public static Users enviar(){
+        Funciones fun = new Funciones();
+        File newfile= new File("test//new.csv");
+        return usuario = fun.Leer_csv(newfile);
+    };
+    
     
     /**
      * Creates new form VentanaAgregarUsuario
@@ -28,6 +37,9 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
         priority[1]=" prioridad_media";
         priority[2]=" prioridad_baja";
         sel.setModel(new javax.swing.DefaultComboBoxModel(priority));
+        this.setLocationRelativeTo(null);
+        
+               
         
     }
 
@@ -126,8 +138,8 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
         NodoUsers nodo =new NodoUsers(campoNombre.getText(),sel.getSelectedItem().toString());
         fun.writeTxt(nodo);
         File newfile= new File("test//new.csv");
-        Users lista = fun.Leer_csv(newfile);
-        fun.writeProductTxt(lista);
+        usuario = fun.Leer_csv(newfile);
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void selActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selActionPerformed

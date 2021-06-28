@@ -1,5 +1,7 @@
 package project2;
 
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -148,5 +150,32 @@ public class Users {
         }
     }
     
+    public void pntAllelmnt(){
+        NodoUsers nodoTmp = this.first;
+        if(this.isEmpty()){
+         JOptionPane.showMessageDialog(null,"The list is empty");
+        }
+        while(nodoTmp != null){
+            JOptionPane.showMessageDialog(null,nodoTmp.getUser());
+            nodoTmp=nodoTmp.getNext();
+        }
+        
+    }
+    
+    public Users prepareDocument(String search, Users aux, NodoDoc node){
+        ListaDoc doc=new ListaDoc();
+        NodoUsers elem=aux.getFirst();
+        while(elem!=null){
+            if(search.equals(elem.getUser())){
+                if(elem.getDocuments()!=null){
+                    doc=elem.getDocuments();
+                }
+                doc.addAtEnd(node);
+                elem.setDocuments(doc);
+            }
+            elem=elem.getNext();
+        }
+        return aux;
+    }
    
 }

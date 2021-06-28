@@ -12,31 +12,34 @@ import project2.Funciones;
 import project2.ListaDoc;
 import project2.NodoUsers;
 import project2.Users;
+import project2.NodoDoc;
 
 /**
  *
  * @author Jose
  */
 public class VentanaAgregarDocumento extends javax.swing.JFrame {
-    public ListaDoc lis;
-    public Users usList;
+    public static Users listaDocs;
+    
+    public static Users enviar(){
+        return listaDocs;
+    };
+    
     /**
      * Creates new form VentanaAgregarDocumento
      */
     public VentanaAgregarDocumento() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         Funciones fun =new Funciones();
         File f=new File("test//new.csv");
-        
         Users listaUser=fun.Leer_csv(f);
         String usuarios =listaUser.returnUsers();
-        String priority =listaUser.returnStatus();
         String[] user = usuarios.split(",");
-        Chooser.setModel(new javax.swing.DefaultComboBoxModel(user));
+        this.Chooser.setModel(new javax.swing.DefaultComboBoxModel(user));
         
-        File file =new File("test//productos.csv");
-        usList=fun.LeerProductosCsv(file);
+        
     }
 
     /**
@@ -161,22 +164,11 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
     }//GEN-LAST:event_nomDocActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
-        Funciones fun = new Funciones();
-        
-        NodoUsers Usuario= this.usList.BuscarUser(Chooser.getSelectedItem().toString());
-        JOptionPane.showMessageDialog(null,Usuario);
-        this.lis= Usuario.getDocuments();
-        if(lis==null){
-            lis= new ListaDoc();
-        }
-        String tipo=this.DocTy.getText();
-        String name=this.nomDoc.getText();
-        int size =Integer.parseInt(this.sizeDoc.getText());
-        lis.addDoc(name, size, tipo);
-        Usuario.setDocuments(lis);
-        fun.writeProductTxt(usList);
-        
+        Users lista= VentanaAgregarUsuario.enviar();
+        String search=Chooser.getSelectedItem().toString();
+        NodoDoc node= new NodoDoc(nomDoc.getText(),Integer.parseInt(sizeDoc.getText()),DocTy.getText());
+        listaDocs= lista.prepareDocument(search, lista, node);
+    
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void ChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooserActionPerformed

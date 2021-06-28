@@ -5,9 +5,12 @@
  */
 package Interfaces;
 
+import static Interfaces.VentanaAgregarDocumento.listaDocs;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import project2.NodoDoc;
+import project2.Users;
 
 
 /**
@@ -184,6 +187,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         VentanaAgregarDocumento venadddoc = new VentanaAgregarDocumento();
         venadddoc.setVisible(true);
+        Users lista= VentanaAgregarUsuario.enviar();
+        listaDocs= lista;
+    
     }//GEN-LAST:event_btnAggDocumentoActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -196,6 +202,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         VentanaEliminarUsuario vendelus = new VentanaEliminarUsuario();
         vendelus.setVisible(true);
+        
+        Users lista= VentanaAgregarUsuario.enviar();
+        listaDocs= lista;
+    
     }//GEN-LAST:event_btnDelUsuarioActionPerformed
 
     private void btnDelDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelDocumentoActionPerformed
