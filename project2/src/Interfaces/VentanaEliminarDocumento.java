@@ -12,7 +12,6 @@ import javax.swing.JFrame;
  * @author Jose
  */
 public class VentanaEliminarDocumento extends javax.swing.JFrame {
-
     /**
      * Creates new form VentanaEliminarDocumento
      */

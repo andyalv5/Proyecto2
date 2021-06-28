@@ -38,7 +38,6 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         String[] user = usuarios.split(",");
         Selector.setModel(new javax.swing.DefaultComboBoxModel(user));
         listaDrop =VentanaAgregarDocumento.enviar();
-        listaDrop.pntAllelmnt();
     }
 
     /**
@@ -120,8 +119,7 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         
         File newfile= new File("test//new.csv");
         fun.Leer_csv(newfile);
-        
-        
+        listaDrop.delByName(toDel);
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

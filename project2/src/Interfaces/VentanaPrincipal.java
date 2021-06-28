@@ -49,6 +49,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public static Users lista;
     
     public static Users enviar(){
+        
         return lista;
     };
     

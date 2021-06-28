@@ -38,8 +38,10 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
         priority[2]=" prioridad_baja";
         sel.setModel(new javax.swing.DefaultComboBoxModel(priority));
         this.setLocationRelativeTo(null);
+        if(VentanaEliminarUsuario.enviar()!=null){
+            usuario = VentanaEliminarUsuario.enviar();
+        }
         
-               
         
     }
 
