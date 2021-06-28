@@ -126,4 +126,24 @@ public class ListaDoc {
         }
         JOptionPane.showMessageDialog(null,toPrint);
     }
+    
+    public void delByName(String name){
+        if(name.equals(this.pFirst.getNombre())){
+            this.pFirst = this.pFirst.getpNext();
+        }
+        else if(name.equals(this.pLast.getNombre())){
+            this.pLast=null;
+        }
+        else{
+            int contador =0;
+            NodoDoc nodoTmp = this.pFirst;
+            while(contador < size-1 && nodoTmp.getpNext() !=null){
+                if(name.equals(nodoTmp.getpNext().getNombre())){
+                    nodoTmp.setpNext(nodoTmp.getpNext().getpNext());
+                }
+                nodoTmp = nodoTmp.getpNext(); 
+            }
+        }
+        size--;
+    }
 }

@@ -61,5 +61,16 @@ public class NodoUsers {
         this.documents = documents;
     }
     
-    
+    public NodoDoc BuscarDoc(String searched){
+        
+        ListaDoc doc=this.getDocuments();
+        NodoDoc aux = doc.getpFirst();
+        while(aux!=null){
+            if(searched.equals(aux.getNombre())){
+                return aux;
+            }
+            aux=aux.getpNext();
+        }
+        return null;
+    }
 }

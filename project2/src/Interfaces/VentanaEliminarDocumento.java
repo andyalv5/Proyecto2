@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import project2.Funciones;
 import project2.NodoUsers;
+import project2.ListaDoc;
 import project2.NodoDoc;
 import project2.Users;
 
@@ -23,6 +24,12 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
      * Creates new form VentanaEliminarDocumento
      */
     public Users carpetaDoc;
+    public static Users listaDrop;
+    
+    public static Users enviar(){
+        listaDrop = VentanaAgregarUsuario.enviar();
+        return listaDrop;
+    };
     
     public VentanaEliminarDocumento() {
         initComponents();
@@ -133,7 +140,24 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        NodoUsers Nodo=carpetaDoc.BuscarUser(User.getSelectedItem().toString());
+        NodoDoc doc=Nodo.BuscarDoc(documento.getSelectedItem().toString());
+        ListaDoc lisDoc= Nodo.getDocuments();
+        lisDoc.delByName(doc.getNombre());
+        carpetaDoc.BuscarUser(User.getSelectedItem().toString()).setDocuments(lisDoc);
+        listaDrop = carpetaDoc;
+        
+        NodoUsers Nodos=carpetaDoc.BuscarUser(User.getSelectedItem().toString());
+        String selection="";
+        if(Nodo.getDocuments()!=null){
+            NodoDoc aux=Nodos.getDocuments().getpFirst();
+            while(aux!=null){
+                selection+= aux.getNombre()+",";
+                aux=aux.getpNext();
+            }
+        }
+        String[] toSel =selection.split(",");
+        documento.setModel(new javax.swing.DefaultComboBoxModel(toSel));
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
