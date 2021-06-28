@@ -22,7 +22,10 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
     public static Users listaDocs;
     
     public static Users enviar(){
-        return listaDocs;
+        Users lista= VentanaAgregarUsuario.enviar();
+        listaDocs= lista.prepareDocument2(lista);
+        Users esto = listaDocs;
+        return esto;
     };
     
     /**
@@ -40,6 +43,11 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         this.Chooser.setModel(new javax.swing.DefaultComboBoxModel(user));
         
         
+        
+    }
+
+    VentanaAgregarDocumento(Users lista) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -168,6 +176,7 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         String search=Chooser.getSelectedItem().toString();
         NodoDoc node= new NodoDoc(nomDoc.getText(),Integer.parseInt(sizeDoc.getText()),DocTy.getText());
         listaDocs= lista.prepareDocument(search, lista, node);
+        
     
     }//GEN-LAST:event_btnAgregarActionPerformed
 

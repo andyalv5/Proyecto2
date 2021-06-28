@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import static Interfaces.VentanaAgregarUsuario.usuario;
 import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,8 +19,11 @@ import project2.Users;
  */
 public class VentanaEliminarUsuario extends javax.swing.JFrame {
     private String usuarios;
-    public static Users usuarioToDel;
-            
+    public static Users listaDrop;
+    
+    public static Users enviar(){
+        return listaDrop;
+    };
     /**
      * Creates new form VentanaEliminarUsuario
      */
@@ -33,7 +37,8 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         usuarios =listaUser.returnUsers();
         String[] user = usuarios.split(",");
         Selector.setModel(new javax.swing.DefaultComboBoxModel(user));
-        usuarioToDel=VentanaAgregarDocumento.enviar();
+        listaDrop =VentanaAgregarDocumento.enviar();
+        listaDrop.pntAllelmnt();
     }
 
     /**

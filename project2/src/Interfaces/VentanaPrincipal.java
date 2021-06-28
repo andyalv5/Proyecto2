@@ -46,6 +46,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
+    public static Users lista;
+    
+    public static Users enviar(){
+        return lista;
+    };
     
     private void actualizar(){
         String time="Dias: "+dias+" Horas: "+ (horas<=9?"0":"")+horas +" Minutos: "+ (minutos<=9?"0":"")+minutos +" Segundos: "+ (segundos<=9?"0":"")+segundos;
@@ -185,10 +190,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnAggDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggDocumentoActionPerformed
         // TODO add your handling code here:
+        
         VentanaAgregarDocumento venadddoc = new VentanaAgregarDocumento();
         venadddoc.setVisible(true);
-        Users lista= VentanaAgregarUsuario.enviar();
-        listaDocs= lista;
+        
+        
+        
     
     }//GEN-LAST:event_btnAggDocumentoActionPerformed
 
@@ -200,11 +207,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnDelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelUsuarioActionPerformed
         // TODO add your handling code here:
+        
+        listaDocs = VentanaEliminarUsuario.enviar();
         VentanaEliminarUsuario vendelus = new VentanaEliminarUsuario();
         vendelus.setVisible(true);
-        
-        Users lista= VentanaAgregarUsuario.enviar();
-        listaDocs= lista;
     
     }//GEN-LAST:event_btnDelUsuarioActionPerformed
 

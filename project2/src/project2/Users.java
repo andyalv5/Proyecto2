@@ -177,5 +177,15 @@ public class Users {
         }
         return aux;
     }
-   
+ 
+    public Users prepareDocument2(Users aux){
+        Users doc=new Users();
+        NodoUsers elem=aux.getFirst();
+        while(elem!=null){
+            doc.addAtEnd(elem);
+            elem=elem.getNext();
+        }
+        return doc;
+    }
+    
 }
