@@ -20,10 +20,14 @@ import project2.NodoDoc;
  */
 public class VentanaAgregarDocumento extends javax.swing.JFrame {
     public static Users listaDocs;
+    public static NodoDoc node;
+    public static String search;
     
     public static Users enviar(){
         Users lista= VentanaAgregarUsuario.enviar();
-        listaDocs= lista.prepareDocument2(lista);
+        if(search!=null && node!=null){
+            listaDocs= lista.prepareDocument(search, lista, node);
+        }
         Users esto = listaDocs;
         return esto;
     };
@@ -173,8 +177,8 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         Users lista= VentanaAgregarUsuario.enviar();
-        String search=Chooser.getSelectedItem().toString();
-        NodoDoc node= new NodoDoc(nomDoc.getText(),Integer.parseInt(sizeDoc.getText()),DocTy.getText());
+        search=Chooser.getSelectedItem().toString();
+        node= new NodoDoc(nomDoc.getText(),Integer.parseInt(sizeDoc.getText()),DocTy.getText());
         listaDocs= lista.prepareDocument(search, lista, node);
         
     

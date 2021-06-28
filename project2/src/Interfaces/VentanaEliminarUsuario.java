@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import static Interfaces.VentanaAgregarDocumento.listaDocs;
 import static Interfaces.VentanaAgregarUsuario.usuario;
 import java.io.File;
 import javax.swing.JFrame;
@@ -22,6 +23,7 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
     public static Users listaDrop;
     
     public static Users enviar(){
+        listaDrop = VentanaAgregarUsuario.enviar();
         return listaDrop;
     };
     /**
@@ -120,7 +122,6 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         File newfile= new File("test//new.csv");
         fun.Leer_csv(newfile);
         listaDrop.delByName(toDel);
-        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

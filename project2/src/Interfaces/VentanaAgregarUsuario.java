@@ -21,8 +21,13 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
     
     public static Users enviar(){
         Funciones fun = new Funciones();
-        File newfile= new File("test//new.csv");
-        return usuario = fun.Leer_csv(newfile);
+        if(usuario!=null){
+        }
+        else{
+            File newfile= new File("test//new.csv");
+            usuario = fun.Leer_csv(newfile);
+        }
+        return usuario;
     };
     
     
