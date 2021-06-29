@@ -6,12 +6,14 @@
 package Interfaces;
 
 import static Interfaces.VentanaAgregarDocumento.listaDocs;
+import static Interfaces.VentanaEliminarDocumento.listaDrop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.Timer;
 import project2.Funciones;
+import project2.Hash_table;
 import project2.MonticuloMin;
 import project2.NodoArbol;
 import project2.NodoDoc;
@@ -23,17 +25,30 @@ import project2.Users;
  * @author Jose
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+    public static MonticuloMin monticuloMin;
+    public static Hash_table hashTable;
+    
+    public static Hash_table enviarHashTable(){
+        return hashTable;
+    };
+    
+    public static MonticuloMin enviarmonticuloMin(){
+        return monticuloMin;
+    };
+    
     public File fichero;
     public Users usuarios;
     
-    private Timer t;
-    private int dias;
-    private int horas;
-    private int minutos;
-    private int segundos;
+    public Timer t;
+    public int dias;
+    public int horas;
+    public int minutos;
+    public int segundos;
     private ActionListener action =new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            
+            
             segundos++;
             if(segundos==60){
                 segundos=0;
@@ -50,24 +65,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             actualizar();
         }
     };
+    
+   
+    
     /**
      * Creates new form VentanaPrincipal
      */
-    public static Users lista;
     
-    public static Users enviar(){
-        
-        return lista;
-    };
     
     private void actualizar(){
         String time="Dias: "+dias+" Horas: "+ (horas<=9?"0":"")+horas +" Minutos: "+ (minutos<=9?"0":"")+minutos +" Segundos: "+ (segundos<=9?"0":"")+segundos;
         this.reloj.setText(time);
-                
     }
     
     public VentanaPrincipal() {
         initComponents();
+        
+        Hash_table hash_tablee = new Hash_table(10000);
+        MonticuloMin monticulo= new MonticuloMin();
+        monticuloMin = monticulo;
+        hashTable = hash_tablee;
+        
         
         this.setLocationRelativeTo(null);
         t=new Timer(1000,action);
@@ -231,7 +249,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         // TODO add your handling code here:
-        VentanaImprimirDocumento venprint = new VentanaImprimirDocumento();
+        VentanaImprimirDocumento venprint = new VentanaImprimirDocumento(this.dias,this.horas,this.minutos,this.segundos);
         venprint.setVisible(true);
     }//GEN-LAST:event_btnImprimirActionPerformed
 
@@ -252,30 +270,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir1ActionPerformed
         
-        MonticuloMin monte =new MonticuloMin();
-        NodoArbol nodito = new NodoArbol("hola",5);
-        NodoArbol nodito2 = new NodoArbol("lol",3);
-        NodoArbol nodito3 = new NodoArbol("coca",7);
-        NodoArbol nodito4 = new NodoArbol("cola",9);
-        NodoArbol nodito5 = new NodoArbol("colas",10);
-        NodoArbol nodito6 = new NodoArbol("tecno",80);
-        NodoArbol nodito7 = new NodoArbol("r",65);
-        NodoArbol nodito8 = new NodoArbol("toto",15);
+        monticuloMin.makeAFamily();
+        monticuloMin.pntAllelmnt();
+        monticuloMin.ShowHeap();
         
-        monte.insertar(nodito);
-        monte.insertar(nodito2);
-        monte.insertar(nodito3);
-        monte.insertar(nodito4);
-        monte.insertar(nodito5);
-        monte.insertar(nodito6);
-        monte.insertar(nodito7);
-        monte.insertar(nodito8);
-        monte.eliminarMinimo();
-        monte.eliminarMinimo();
-        
-        monte.makeAFamily();
-        monte.pntAllelmnt();
-        monte.ShowHeap();
+//        MonticuloMin monte =new MonticuloMin();
+//        NodoArbol nodito = new NodoArbol("hola",5);
+//        NodoArbol nodito2 = new NodoArbol("lol",3);
+//        NodoArbol nodito3 = new NodoArbol("coca",7);
+//        NodoArbol nodito4 = new NodoArbol("cola",9);
+//        NodoArbol nodito5 = new NodoArbol("colas",10);
+//        NodoArbol nodito6 = new NodoArbol("tecno",80);
+//        NodoArbol nodito7 = new NodoArbol("r",65);
+//        NodoArbol nodito8 = new NodoArbol("toto",15);
+//        
+//        monte.insertar(nodito);
+//        monte.insertar(nodito2);
+//        monte.insertar(nodito3);
+//        monte.insertar(nodito4);
+//        monte.insertar(nodito5);
+//        monte.insertar(nodito6);
+//        monte.insertar(nodito7);
+//        monte.insertar(nodito8);
+//        monte.eliminarMinimo();
+//        monte.eliminarMinimo();
+////        
+//        monte.makeAFamily();
+//        monte.pntAllelmnt();
+//        monte.ShowHeap();
     }//GEN-LAST:event_btnImprimir1ActionPerformed
 
     private void btnImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir2ActionPerformed

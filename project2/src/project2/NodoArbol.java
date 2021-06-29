@@ -10,13 +10,13 @@ package project2;
  * @author andy
  */
 public class NodoArbol {
-    private Object data;
+    private NodoDoc data;
     private NodoArbol parent;
     private NodoArbol nodoIzq;
     private NodoArbol nodoDer;
     private int priority;
 
-    public NodoArbol(Object data, int priority){
+    public NodoArbol(NodoDoc data, int priority){
         this.data=data;
         this.priority=priority;
         this.parent=null;
@@ -28,14 +28,14 @@ public class NodoArbol {
     /**
      * @return the data
      */
-    public Object getData() {
+    public NodoDoc getData() {
         return data;
     }
 
     /**
      * @param data the data to set
      */
-    public void setData(Object data) {
+    public void setData(NodoDoc data) {
         this.data = data;
     }
 

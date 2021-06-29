@@ -73,4 +73,15 @@ public class NodoUsers {
         }
         return null;
     }
+    
+    public int checkPriority(NodoUsers usuario,int timeTag){
+        
+        if(usuario.getPriority().equals(" prioridad_baja")){
+            timeTag = timeTag *25;
+        }
+        else if(usuario.getPriority().equals(" prioridad_media")){
+            timeTag = timeTag *10;
+        }
+        return timeTag;
+    }
 }
