@@ -188,4 +188,25 @@ public class Users {
         return doc;
     }
     
+    public void imprimirTodo(){
+        NodoUsers nodoTmp = this.first;
+        String imprimir = "<html><b>Usuarios y Documentos que NO ESTAN en cola de impresion:</b><html>"+"\n";
+        
+        if(this.isEmpty()){
+         JOptionPane.showMessageDialog(null,"The list is empty");
+        }
+        while(nodoTmp != null){
+            imprimir += "Usuario: "+nodoTmp.getUser()+" "+nodoTmp.getPriority()+"\n";
+            if(nodoTmp.getDocuments()!=null && nodoTmp.getDocuments().getpFirst()!=null){
+                NodoDoc aux =nodoTmp.getDocuments().getpFirst();
+                while(aux!=null){
+                    imprimir += "       Documento: "+aux.getNombre()+" tipo: " +aux.getTipo()+" size: "+aux.getSize()+"\n";
+                    aux=aux.getpNext();
+                }
+            }
+            nodoTmp=nodoTmp.getNext();
+        }
+        JOptionPane.showMessageDialog(null, imprimir);
+    }
+    
 }

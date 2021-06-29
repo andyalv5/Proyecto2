@@ -5,6 +5,8 @@
  */
 package project2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author andy
@@ -24,6 +26,18 @@ public class Hash_table {
             
         }
         
+    }
+    
+    
+    
+    
+    public boolean isEmpty(){
+        for(int i=0;i<size_tabla;i++){
+            if(tabla[i]!=null){
+                return false;
+            }
+        }
+        return true;
     }
     
     public int hashing(String nombre){
@@ -66,6 +80,7 @@ public class Hash_table {
     }
     
     public void Insertar(String usuario,int timeTag, NodoDoc doc){
+        
         
         int posicion = hashing(usuario);
         boolean existe = false;
@@ -158,34 +173,18 @@ public class Hash_table {
  
     }
     
-//    public void imprimir(){
-//        
-//        String linea = "";
-//        
-//        for (int i = 0; i < size_tabla; i++) {
-//            
-//            if(this.tabla[i] != null){
-//                
-//                linea += this.tabla[i].getUsuario().getUser() + "," + this.tabla[i].getUsuario().getPriority() + "," + this.tabla[i].getUsuario().getDocuments().imprimir(this.tabla[i].getUsuario().getDocuments().getpFirst(), linea) + "\n";
-//                
-//                if(this.tabla[i].getSiguiente() != null){
-//                    
-//                    NodoHash temp = this.tabla[i].getSiguiente();
-//                    while(temp != null){
-//                        
-//                        linea += this.tabla[i].getUsuario().getUser() + "," + this.tabla[i].getUsuario().getPriority() + "," + this.tabla[i].getUsuario().getDocuments().imprimir(this.tabla[i].getUsuario().getDocuments().getpFirst(), linea) + "\n";
-//                        temp = temp.getSiguiente();
-//
-//                        
-//                    }
-//                    
-//                }
-//                
-//            }
-//            
-//        }
-//        
-//    }
+    public void imprimir(){
+        
+        String linea = "<html><b>Usuarios y Documentos que ESTAN en cola de impresion:</b><html>"+"\n";
+        for (int i = 0; i < size_tabla; i++) {
+            if(this.tabla[i] != null){
+                linea += "usuario: "+this.tabla[i].getUsuario() + " ," +" TimeTag: "+ this.tabla[i].getTimeTag()+ " Documento: "+this.tabla[i].getDocument().getNombre();
+                
+            }
+            
+        }
+        JOptionPane.showMessageDialog(null, linea);
+    }
 //    
     public void Crear_usuario(String nombre, String prioridad,int timeTag, NodoDoc doc){
         

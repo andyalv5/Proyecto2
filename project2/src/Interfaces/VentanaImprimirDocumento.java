@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import static Interfaces.VentanaPrincipal.monticuloMin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -82,8 +83,8 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         this.segundos=segundos;
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         
-        documento.setEnabled(false);
         Funciones fun =new Funciones();
         File f=new File("test//new.csv");
         Users listaUser=fun.Leer_csv(f);
@@ -93,6 +94,18 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         DocumList = VentanaAgregarUsuario.enviar();
         carpetaDoc = VentanaAgregarUsuario.enviar();
         
+        documento.setEnabled(true);
+        NodoUsers Nodo=this.DocumList.BuscarUser(User.getSelectedItem().toString());
+        String selection="";
+        if(Nodo.getDocuments()!=null){
+            NodoDoc aux=Nodo.getDocuments().getpFirst();
+            while(aux!=null){
+                selection+= aux.getNombre()+",";
+                aux=aux.getpNext();
+            }
+        }
+        String[] toSel =selection.split(",");
+        documento.setModel(new javax.swing.DefaultComboBoxModel(toSel));
         
     }
 
@@ -144,14 +157,18 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
             }
         });
 
-        documento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         documento.setEnabled(false);
+        documento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                documentoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("NOMBRE DEL DOCUMENTO:");
 
         jLabel4.setText("ID USUARIO:");
 
-        jLabel1.setText("IMPRIMIR DOCUMENTO");
+        jLabel1.setText("ENVIAR A LA COLA DE IMPRESION");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,9 +186,9 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(reloj))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                        .addGap(86, 86, 86)
                         .addComponent(jLabel1)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(56, 56, 56)
@@ -216,7 +233,7 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        MonticuloMin monticulo= VentanaPrincipal.enviarmonticuloMin();
+        
         Hash_table hashTab=VentanaPrincipal.enviarHashTable();
         Users lista =VentanaAgregarUsuario.enviar();
         
@@ -234,7 +251,7 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         listado.delByName(documento.getSelectedItem().toString());
         carpetaDoc.BuscarUser(User.getSelectedItem().toString()).setDocuments(listado);
         
-        monticulo.insertar(nodo);
+        monticuloMin.insertar(nodo);
         
         String selection="";
         if(usuario.getDocuments()!=null){
@@ -267,6 +284,10 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
     private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
 
     }//GEN-LAST:event_UserActionPerformed
+
+    private void documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_documentoActionPerformed
 
     /**
      * @param args the command line arguments

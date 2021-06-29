@@ -35,7 +35,6 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        documento.setEnabled(false);
         Funciones fun =new Funciones();
         File f=new File("test//new.csv");
         Users listaUser=fun.Leer_csv(f);
@@ -43,6 +42,20 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         String[] user = usuarios.split(",");
         User.setModel(new javax.swing.DefaultComboBoxModel(user));
         carpetaDoc = VentanaAgregarUsuario.enviar();
+        
+        Users DocumList = VentanaAgregarUsuario.enviar();
+        documento.setEnabled(true);
+        NodoUsers Nodo=DocumList.BuscarUser(User.getSelectedItem().toString());
+        String selection="";
+        if(Nodo.getDocuments()!=null){
+            NodoDoc aux=Nodo.getDocuments().getpFirst();
+            while(aux!=null){
+                selection+= aux.getNombre()+",";
+                aux=aux.getpNext();
+            }
+        }
+        String[] toSel =selection.split(",");
+        documento.setModel(new javax.swing.DefaultComboBoxModel(toSel));
     }
     
     
@@ -89,8 +102,12 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
             }
         });
 
-        documento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         documento.setEnabled(false);
+        documento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                documentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,7 +128,7 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addComponent(documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(2, 2, 2)))
-                        .addContainerGap(56, Short.MAX_VALUE))
+                        .addContainerGap(100, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -177,7 +194,13 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         }
         String[] toSel =selection.split(",");
         documento.setModel(new javax.swing.DefaultComboBoxModel(toSel));
+        
+        
     }//GEN-LAST:event_UserItemStateChanged
+
+    private void documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_documentoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -77,9 +77,15 @@ public class MonticuloMin {
             ampliar();
         }
         this.heap[size]=data;
-        
-        this.intercambiar(size); 
+        if(size!=1){
+            this.intercambiar(size);
+        }
+        else if(size==0){
+            this.heap[0]=data;
+            this.setpRoot(data);
+        }
         this.size=size+1;
+        
     }
     
     public void makeAFamily(){
@@ -181,9 +187,8 @@ public class MonticuloMin {
          JOptionPane.showMessageDialog(null,"The list is empty");
         }
         else{
-            toPrint+= "[" +this.heap[0].getPriority()+"]";
-            for(int i=1;i<size;i++){
-                toPrint+= " --->" +" ["+this.heap[i].getPriority()+"]";
+            for(int i=0;i<size;i++){
+                toPrint+= "Nombre: ["+this.heap[i].getData().getNombre()+"] Tipo:"+this.heap[i].getData().getTipo()+ " size:" +this.heap[i].getData().getSize()+" \n";
             }
             JOptionPane.showMessageDialog(null,toPrint);
         }
@@ -220,17 +225,26 @@ public class MonticuloMin {
     
     
     public NodoArbol eliminarMinimo(){
+        NodoArbol rama;
         if(this.size==0){
-            JOptionPane.showMessageDialog(null, "El arbol esta vacio");
+            rama=this.heap[0];
+            this.size=0;
         }
-        NodoArbol rama = this.heap[0];
-        heap[0]=heap[this.size-1];
-        heap[this.size-1]=null;
-        this.size--;
-        hundir(0);
+        else{
+            rama = this.heap[0];
+            heap[0]=heap[this.size-1];
+            heap[this.size-1]=null;
+            this.size--;
+            hundir(0);
+        }
         return rama;
         
     }
     
-    
+    public void imprimir(){
+        while(this.pRoot!=null){
+            NodoArbol nodo= eliminarMinimo();
+            
+        }
+    }
 }

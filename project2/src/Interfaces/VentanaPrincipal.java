@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import project2.Funciones;
 import project2.Hash_table;
@@ -66,7 +67,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     };
     
-   
+    
     
     /**
      * Creates new form VentanaPrincipal
@@ -80,7 +81,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     public VentanaPrincipal() {
         initComponents();
-        
         Hash_table hash_tablee = new Hash_table(10000);
         MonticuloMin monticulo= new MonticuloMin();
         monticuloMin = monticulo;
@@ -112,12 +112,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         reloj = new javax.swing.JLabel();
         btnImprimir1 = new javax.swing.JButton();
         btnImprimir2 = new javax.swing.JButton();
+        btnImprimir3 = new javax.swing.JButton();
+        btnImprimir4 = new javax.swing.JButton();
 
         jButton1.setText("ELIMINAR USUARIO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("BIENVENIDO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 46, -1, -1));
 
         btnAggUsuario.setText("AGREGAR USUARIO");
         btnAggUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +129,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnAggUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAggUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 68, 248, -1));
 
         btnAggDocumento.setText("AGREGAR DOCUMENTO");
         btnAggDocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -132,13 +137,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnAggDocumentoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAggDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 162, 248, -1));
 
-        btnImprimir.setText("IMPRIMIR DOCUMENTOS");
+        btnImprimir.setText("AGREGAR A COLA DE IMPRESION");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImprimirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 256, -1, -1));
 
         btnDelDocumento.setText("ELIMINAR DOCUMENTO");
         btnDelDocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +153,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnDelDocumentoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDelDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 209, 248, -1));
 
         btnDelUsuario.setText("ELIMINAR USUARIO");
         btnDelUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -153,10 +161,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnDelUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 115, 248, -1));
 
         jLabel2.setText("reloj:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 15, -1, -1));
 
         reloj.setText("00:00:00:00");
+        getContentPane().add(reloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 15, -1, -1));
 
         btnImprimir1.setText("VER LA COLA DE IMPRESION");
         btnImprimir1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +175,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnImprimir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 303, 248, -1));
 
         btnImprimir2.setText("CARGAR DATOS");
         btnImprimir2.addActionListener(new java.awt.event.ActionListener() {
@@ -171,61 +183,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir2ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnImprimir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 350, 248, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(reloj))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAggDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAggUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDelDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnImprimir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnImprimir2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabel1)))
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAggUsuario)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDelUsuario)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAggDocumento)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDelDocumento)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnImprimir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(reloj))))
-                .addGap(18, 18, 18)
-                .addComponent(btnImprimir1)
-                .addGap(18, 18, 18)
-                .addComponent(btnImprimir2)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        btnImprimir3.setText("USUARIOS Y DOCUMENTOS");
+        btnImprimir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimir3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnImprimir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 397, 248, -1));
+
+        btnImprimir4.setText("IMPRIMIR");
+        btnImprimir4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimir4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnImprimir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 444, 248, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -316,6 +290,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnImprimir2ActionPerformed
 
+    private void btnImprimir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir3ActionPerformed
+        Users usuarios=VentanaAgregarUsuario.enviar();
+        usuarios.imprimirTodo();
+        if(!hashTable.isEmpty()){
+            hashTable.imprimir();
+        }
+    }//GEN-LAST:event_btnImprimir3ActionPerformed
+
+    private void btnImprimir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir4ActionPerformed
+        
+        NodoArbol nodo=monticuloMin.eliminarMinimo();
+        String info ="";
+        while(nodo!=null){
+            info += "Nombre: "+nodo.getData().getNombre()+" Tipo: "+nodo.getData().getTipo()+"\n";
+            
+            imprimir print=new imprimir(info);
+            print.setVisible(true);
+            nodo=monticuloMin.eliminarMinimo();
+            print.setVisible(false);
+        }
+        imprimir print=new imprimir(info);
+        hashTable = new Hash_table(10000);
+        print.setVisible(true);
+    }//GEN-LAST:event_btnImprimir4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -359,6 +358,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnImprimir1;
     private javax.swing.JButton btnImprimir2;
+    private javax.swing.JButton btnImprimir3;
+    private javax.swing.JButton btnImprimir4;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

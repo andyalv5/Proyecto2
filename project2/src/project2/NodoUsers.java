@@ -77,10 +77,10 @@ public class NodoUsers {
     public int checkPriority(NodoUsers usuario,int timeTag){
         
         if(usuario.getPriority().equals(" prioridad_baja")){
-            timeTag = timeTag *25;
+            timeTag = timeTag *6;
         }
         else if(usuario.getPriority().equals(" prioridad_media")){
-            timeTag = timeTag *10;
+            timeTag = timeTag *3;
         }
         return timeTag;
     }
