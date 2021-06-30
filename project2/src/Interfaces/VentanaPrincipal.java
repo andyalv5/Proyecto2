@@ -114,6 +114,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnImprimir2 = new javax.swing.JButton();
         btnImprimir3 = new javax.swing.JButton();
         btnImprimir4 = new javax.swing.JButton();
+        btnImprimir5 = new javax.swing.JButton();
 
         jButton1.setText("ELIMINAR USUARIO");
 
@@ -199,7 +200,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir4ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 444, 248, -1));
+        getContentPane().add(btnImprimir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 248, -1));
+
+        btnImprimir5.setText("ELIMINAR DE COLA");
+        btnImprimir5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimir5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnImprimir5, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 444, 248, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,6 +324,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         print.setVisible(true);
     }//GEN-LAST:event_btnImprimir4ActionPerformed
 
+    private void btnImprimir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir5ActionPerformed
+        EliminarDocCola DelCola=new EliminarDocCola();
+        DelCola.setVisible(true);
+    }//GEN-LAST:event_btnImprimir5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -360,6 +374,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnImprimir2;
     private javax.swing.JButton btnImprimir3;
     private javax.swing.JButton btnImprimir4;
+    private javax.swing.JButton btnImprimir5;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

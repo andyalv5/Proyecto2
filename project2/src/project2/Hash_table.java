@@ -142,8 +142,10 @@ public class Hash_table {
                 while(temp.getSiguiente() != null){
                     
                     if(temp.getUsuario().equals(nombre)){
-                        
                         existe = true;
+                        NodoHash aux =temp;
+                        return aux;
+                        
                         
                     }
                     
@@ -160,7 +162,6 @@ public class Hash_table {
         }
         
         if(existe){
-            
             return temp;
             
         }

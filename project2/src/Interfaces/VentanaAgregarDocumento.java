@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import static Interfaces.VentanaPrincipal.monticuloMin;
 import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -180,6 +181,7 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         search=Chooser.getSelectedItem().toString();
         node= new NodoDoc(nomDoc.getText(),Integer.parseInt(sizeDoc.getText()),DocTy.getText());
         listaDocs= lista.prepareDocument(search, lista, node);
+        
         
     
     }//GEN-LAST:event_btnAgregarActionPerformed
