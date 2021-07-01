@@ -122,7 +122,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("BIENVENIDO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 46, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         btnAggUsuario.setText("AGREGAR USUARIO");
         btnAggUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnAggUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAggUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 68, 248, -1));
+        getContentPane().add(btnAggUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 248, -1));
 
         btnAggDocumento.setText("AGREGAR DOCUMENTO");
         btnAggDocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +138,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnAggDocumentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAggDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 162, 248, -1));
+        getContentPane().add(btnAggDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 248, -1));
 
         btnImprimir.setText("AGREGAR A COLA DE IMPRESION");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 256, -1, -1));
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
         btnDelDocumento.setText("ELIMINAR DOCUMENTO");
         btnDelDocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +154,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnDelDocumentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 209, 248, -1));
+        getContentPane().add(btnDelDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 248, -1));
 
         btnDelUsuario.setText("ELIMINAR USUARIO");
         btnDelUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +162,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnDelUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 115, 248, -1));
+        getContentPane().add(btnDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 248, -1));
 
         jLabel2.setText("reloj:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 15, -1, -1));
@@ -176,7 +176,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 303, 248, -1));
+        getContentPane().add(btnImprimir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 248, -1));
 
         btnImprimir2.setText("CARGAR DATOS");
         btnImprimir2.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +184,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 350, 248, -1));
+        getContentPane().add(btnImprimir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 248, -1));
 
         btnImprimir3.setText("USUARIOS Y DOCUMENTOS");
         btnImprimir3.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +192,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 397, 248, -1));
+        getContentPane().add(btnImprimir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 248, -1));
 
         btnImprimir4.setText("IMPRIMIR");
         btnImprimir4.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +200,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir4ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 248, -1));
+        getContentPane().add(btnImprimir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 248, -1));
 
         btnImprimir5.setText("ELIMINAR DE COLA");
         btnImprimir5.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +208,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnImprimir5ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir5, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 444, 248, -1));
+        getContentPane().add(btnImprimir5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 248, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
