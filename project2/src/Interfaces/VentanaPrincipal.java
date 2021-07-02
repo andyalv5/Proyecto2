@@ -122,12 +122,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         jButton1.setText("ELIMINAR USUARIO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 204));
         setMaximumSize(new java.awt.Dimension(433, 527));
         setMinimumSize(new java.awt.Dimension(433, 527));
         setPreferredSize(new java.awt.Dimension(433, 527));
@@ -269,9 +269,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 520, 530, 110));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Alta_montaña,_verde,_hierba,_piscina_de_aguaPapel pintado_1024x768[10wallpaper.com].jpg"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/ws_Shining_blue_1024x768.jpeg"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, -60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -436,7 +435,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextPane jTextPane4;
