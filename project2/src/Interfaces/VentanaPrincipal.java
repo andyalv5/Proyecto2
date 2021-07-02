@@ -10,6 +10,7 @@ import static Interfaces.VentanaEliminarDocumento.listaDrop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+//import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -81,17 +82,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     public VentanaPrincipal() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setTitle("Principal");
+        
         Hash_table hash_tablee = new Hash_table(10000);
         MonticuloMin monticulo= new MonticuloMin();
         monticuloMin = monticulo;
         hashTable = hash_tablee;
         
-        
-        this.setLocationRelativeTo(null);
         t=new Timer(1000,action);
         t.start();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,92 +119,127 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnImprimir2 = new javax.swing.JButton();
         btnImprimir3 = new javax.swing.JButton();
         btnImprimir4 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         jButton1.setText("ELIMINAR USUARIO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 102));
+        setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("BIENVENIDO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 46, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
 
+        btnAggUsuario.setBackground(new java.awt.Color(0, 102, 204));
+        btnAggUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnAggUsuario.setText("AGREGAR USUARIO");
         btnAggUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAggUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAggUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 68, 248, -1));
+        getContentPane().add(btnAggUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 210, -1));
 
+        btnAggDocumento.setBackground(new java.awt.Color(0, 102, 204));
+        btnAggDocumento.setForeground(new java.awt.Color(255, 255, 255));
         btnAggDocumento.setText("AGREGAR DOCUMENTO");
         btnAggDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAggDocumentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAggDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 162, 248, -1));
+        getContentPane().add(btnAggDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 210, -1));
 
+        btnImprimir.setBackground(new java.awt.Color(0, 102, 204));
+        btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimir.setText("AGREGAR A COLA DE IMPRESION");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 256, -1, -1));
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 210, -1));
 
+        btnDelDocumento.setBackground(new java.awt.Color(0, 102, 204));
+        btnDelDocumento.setForeground(new java.awt.Color(255, 255, 255));
         btnDelDocumento.setText("ELIMINAR DOCUMENTO");
         btnDelDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDelDocumentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 209, 248, -1));
+        getContentPane().add(btnDelDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, -1));
 
+        btnDelUsuario.setBackground(new java.awt.Color(0, 102, 204));
+        btnDelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnDelUsuario.setText("ELIMINAR USUARIO");
         btnDelUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDelUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 115, 248, -1));
+        getContentPane().add(btnDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 210, -1));
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("reloj:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 15, -1, -1));
 
+        reloj.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        reloj.setForeground(new java.awt.Color(204, 204, 204));
         reloj.setText("00:00:00:00");
         getContentPane().add(reloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 15, -1, -1));
 
+        btnImprimir1.setBackground(new java.awt.Color(0, 102, 204));
+        btnImprimir1.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimir1.setText("VER LA COLA DE IMPRESION");
         btnImprimir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImprimir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 303, 248, -1));
+        getContentPane().add(btnImprimir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 210, -1));
 
+        btnImprimir2.setBackground(new java.awt.Color(0, 102, 204));
+        btnImprimir2.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimir2.setText("CARGAR DATOS");
         btnImprimir2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImprimir2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 350, 248, -1));
+        getContentPane().add(btnImprimir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 210, -1));
 
+        btnImprimir3.setBackground(new java.awt.Color(0, 102, 204));
+        btnImprimir3.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimir3.setText("USUARIOS Y DOCUMENTOS");
         btnImprimir3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImprimir3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 397, 248, -1));
+        getContentPane().add(btnImprimir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 210, -1));
 
+        btnImprimir4.setBackground(new java.awt.Color(0, 102, 204));
+        btnImprimir4.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimir4.setText("IMPRIMIR");
         btnImprimir4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImprimir4ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 444, 248, -1));
+        getContentPane().add(btnImprimir4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 210, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 70));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 430, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -363,6 +403,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel reloj;
     // End of variables declaration//GEN-END:variables
+
 }
