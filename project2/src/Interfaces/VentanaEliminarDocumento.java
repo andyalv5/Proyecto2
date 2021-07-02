@@ -68,24 +68,42 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
         btnEliminar = new javax.swing.JButton();
         User = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         documento = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextPane3 = new javax.swing.JTextPane();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(423, 250));
+        setMinimumSize(new java.awt.Dimension(423, 250));
+        setPreferredSize(new java.awt.Dimension(423, 250));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("ELIMINAR DOCUMENTO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
-
         jLabel2.setText("ID USUARIO:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 85, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 80, -1));
 
         jLabel3.setText("NOMBRE DEL DOCUMENTO:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        jTextPane2.setEditable(false);
+        jTextPane2.setDragEnabled(false);
+        jTextPane2.setEnabled(false);
+        jTextPane2.setFocusCycleRoot(false);
+        jTextPane2.setFocusTraversalKeysEnabled(false);
+        jTextPane2.setRequestFocusEnabled(false);
+        jTextPane2.setVerifyInputWhenFocusTarget(false);
+        jScrollPane2.setViewportView(jTextPane2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 190, 30));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +111,7 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, -1));
 
         User.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         User.addItemListener(new java.awt.event.ItemListener() {
@@ -106,7 +124,31 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
                 UserActionPerformed(evt);
             }
         });
-        getContentPane().add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+        getContentPane().add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
+        jLabel1.setText("ELIMINAR DOCUMENTO");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(jLabel1)
+                .addContainerGap(218, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -10, 530, 70));
 
         documento.setEnabled(false);
         documento.addActionListener(new java.awt.event.ActionListener() {
@@ -114,12 +156,27 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
                 documentoActionPerformed(evt);
             }
         });
-        getContentPane().add(documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, 40));
+        getContentPane().add(documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, 40));
+
+        jTextPane3.setEditable(false);
+        jTextPane3.setDragEnabled(false);
+        jTextPane3.setEnabled(false);
+        jTextPane3.setFocusCycleRoot(false);
+        jTextPane3.setFocusTraversalKeysEnabled(false);
+        jTextPane3.setRequestFocusEnabled(false);
+        jTextPane3.setVerifyInputWhenFocusTarget(false);
+        jScrollPane3.setViewportView(jTextPane3);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 100, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Pirámide_Egipto-paisaje_natural_fondo_de_pantalla_HDPapel pintado_1024x768[10wallpaper.com].jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    try{
         NodoUsers Nodo=carpetaDoc.BuscarUser(User.getSelectedItem().toString());
         NodoDoc doc=Nodo.BuscarDoc(documento.getSelectedItem().toString());
         ListaDoc lisDoc= Nodo.getDocuments();
@@ -138,6 +195,10 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         }
         String[] toSel =selection.split(",");
         documento.setModel(new javax.swing.DefaultComboBoxModel(toSel));
+    }
+    catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Algo ha salido mal, por favor intentelo de nuevo","Error",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
@@ -208,5 +269,11 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextPane jTextPane3;
     // End of variables declaration//GEN-END:variables
 }

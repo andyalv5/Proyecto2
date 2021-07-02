@@ -7,6 +7,7 @@ package Interfaces;
 
 import java.io.File;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import project2.Funciones;
 import project2.NodoUsers;
 import project2.Users;
@@ -61,24 +62,60 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         campoNombre = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         sel = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextPane3 = new javax.swing.JTextPane();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(477, 291));
+        setMinimumSize(new java.awt.Dimension(477, 291));
+        setPreferredSize(new java.awt.Dimension(477, 291));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("AGREGAR USUARIO");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
+        jLabel7.setText("AGREGAR DOCUMENTO");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(jLabel7)
+                .addContainerGap(188, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel7)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -10, 530, 70));
 
         jLabel4.setText("NOMBRE DEL USUARIO:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         jLabel6.setText("NIVEL DE PRIORIDAD:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 157, -1, -1));
+        getContentPane().add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 179, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +123,7 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 203, -1, -1));
 
         sel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sel.addActionListener(new java.awt.event.ActionListener() {
@@ -93,62 +131,47 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
                 selActionPerformed(evt);
             }
         });
+        getContentPane().add(sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(sel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(163, 163, 163))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnAgregar)
-                        .addGap(47, 47, 47))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(sel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(btnAgregar)
-                .addGap(36, 36, 36))
-        );
+        jTextPane2.setEditable(false);
+        jTextPane2.setDragEnabled(false);
+        jTextPane2.setEnabled(false);
+        jTextPane2.setFocusCycleRoot(false);
+        jTextPane2.setFocusTraversalKeysEnabled(false);
+        jTextPane2.setRequestFocusEnabled(false);
+        jTextPane2.setVerifyInputWhenFocusTarget(false);
+        jScrollPane2.setViewportView(jTextPane2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 180, 30));
+
+        jTextPane3.setEditable(false);
+        jTextPane3.setDragEnabled(false);
+        jTextPane3.setEnabled(false);
+        jTextPane3.setFocusCycleRoot(false);
+        jTextPane3.setFocusTraversalKeysEnabled(false);
+        jTextPane3.setRequestFocusEnabled(false);
+        jTextPane3.setVerifyInputWhenFocusTarget(false);
+        jScrollPane3.setViewportView(jTextPane3);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 180, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Tailandia_playa_escenas-fotos_fondo_de_pantalla_HDPapel pintado_1024x768[10wallpaper.com].jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        Funciones fun = new Funciones();
-        NodoUsers nodo =new NodoUsers(campoNombre.getText(),sel.getSelectedItem().toString());
-        fun.writeTxt(nodo);
-        File newfile= new File("test//new.csv");
-        usuario = fun.Leer_csv(newfile);
-        
+        try{    
+            Funciones fun = new Funciones();
+            NodoUsers nodo =new NodoUsers(campoNombre.getText(),sel.getSelectedItem().toString());
+            fun.writeTxt(nodo);
+            File newfile= new File("test//new.csv");
+            usuario = fun.Leer_csv(newfile);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Algo ha salido mal, por favor intentelo de nuevo","Error",JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void selActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selActionPerformed
@@ -194,11 +217,17 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JTextField campoNombre;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextPane jTextPane3;
     private javax.swing.JComboBox<String> sel;
     // End of variables declaration//GEN-END:variables
 }

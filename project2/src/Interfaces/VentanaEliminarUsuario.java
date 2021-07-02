@@ -54,9 +54,16 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         Selector = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextPane3 = new javax.swing.JTextPane();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(376, 200));
+        setMinimumSize(new java.awt.Dimension(376, 200));
+        setPreferredSize(new java.awt.Dimension(376, 200));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("ELIMINAR USUARIO");
@@ -71,7 +78,23 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 128, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -10, 530, 70));
 
         Selector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Selector.addActionListener(new java.awt.event.ActionListener() {
@@ -79,12 +102,27 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
                 SelectorActionPerformed(evt);
             }
         });
-        getContentPane().add(Selector, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 66, 100, 40));
+        getContentPane().add(Selector, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 100, 40));
+
+        jTextPane3.setEditable(false);
+        jTextPane3.setDragEnabled(false);
+        jTextPane3.setEnabled(false);
+        jTextPane3.setFocusCycleRoot(false);
+        jTextPane3.setFocusTraversalKeysEnabled(false);
+        jTextPane3.setRequestFocusEnabled(false);
+        jTextPane3.setVerifyInputWhenFocusTarget(false);
+        jScrollPane3.setViewportView(jTextPane3);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 100, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Bosque,_montañas,_nieve,_lago,_2020,_paisaje_de_la_naturaleza,_fotoPapel pintado_1024x768[10wallpaper.com].jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    try{
         Funciones fun=new Funciones();
         String toDel = Selector.getSelectedItem().toString();
         String user =fun.writeTxt(toDel);
@@ -94,7 +132,10 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         File newfile= new File("test//new.csv");
         fun.Leer_csv(newfile);
         listaDrop.delByName(toDel);
-        
+    }
+    catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Algo ha salido mal, por favor intentelo de nuevo","Error",JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void SelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorActionPerformed
@@ -142,5 +183,9 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextPane jTextPane3;
     // End of variables declaration//GEN-END:variables
 }

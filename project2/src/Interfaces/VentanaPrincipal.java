@@ -102,7 +102,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnAggUsuario = new javax.swing.JButton();
         btnAggDocumento = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
@@ -115,14 +114,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnImprimir3 = new javax.swing.JButton();
         btnImprimir4 = new javax.swing.JButton();
         btnImprimir5 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextPane4 = new javax.swing.JTextPane();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jButton1.setText("ELIMINAR USUARIO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(433, 527));
+        setMinimumSize(new java.awt.Dimension(433, 527));
+        setPreferredSize(new java.awt.Dimension(433, 527));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("BIENVENIDO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         btnAggUsuario.setText("AGREGAR USUARIO");
         btnAggUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +220,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btnImprimir5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 248, -1));
 
+        jLabel7.setText("BIENVENIDO");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+
+        jTextPane4.setEditable(false);
+        jTextPane4.setDragEnabled(false);
+        jTextPane4.setEnabled(false);
+        jTextPane4.setFocusCycleRoot(false);
+        jTextPane4.setFocusTraversalKeysEnabled(false);
+        jTextPane4.setRequestFocusEnabled(false);
+        jTextPane4.setVerifyInputWhenFocusTarget(false);
+        jScrollPane4.setViewportView(jTextPane4);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 100, 30));
+
+        jLabel3.setText("Nota: imprimir tiene un tiempo extra colocado por nosotros");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
+
+        jLabel4.setText("para simular la impresion");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(jLabel1)))
+                .addContainerGap(335, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 520, 530, 110));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Alta_montaña,_verde,_hierba,_piscina_de_aguaPapel pintado_1024x768[10wallpaper.com].jpg"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -252,35 +315,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDelDocumentoActionPerformed
 
     private void btnImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir1ActionPerformed
-        
+    try{
         monticuloMin.makeAFamily();
         monticuloMin.pntAllelmnt();
         monticuloMin.ShowHeap();
-        
-//        MonticuloMin monte =new MonticuloMin();
-//        NodoArbol nodito = new NodoArbol("hola",5);
-//        NodoArbol nodito2 = new NodoArbol("lol",3);
-//        NodoArbol nodito3 = new NodoArbol("coca",7);
-//        NodoArbol nodito4 = new NodoArbol("cola",9);
-//        NodoArbol nodito5 = new NodoArbol("colas",10);
-//        NodoArbol nodito6 = new NodoArbol("tecno",80);
-//        NodoArbol nodito7 = new NodoArbol("r",65);
-//        NodoArbol nodito8 = new NodoArbol("toto",15);
-//        
-//        monte.insertar(nodito);
-//        monte.insertar(nodito2);
-//        monte.insertar(nodito3);
-//        monte.insertar(nodito4);
-//        monte.insertar(nodito5);
-//        monte.insertar(nodito6);
-//        monte.insertar(nodito7);
-//        monte.insertar(nodito8);
-//        monte.eliminarMinimo();
-//        monte.eliminarMinimo();
-////        
-//        monte.makeAFamily();
-//        monte.pntAllelmnt();
-//        monte.ShowHeap();
+    }
+    
+    catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Algo ha salido mal, por favor intentelo de nuevo","Error",JOptionPane.INFORMATION_MESSAGE);
+    }
+
     }//GEN-LAST:event_btnImprimir1ActionPerformed
 
     private void btnImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir2ActionPerformed
@@ -300,15 +344,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImprimir2ActionPerformed
 
     private void btnImprimir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir3ActionPerformed
-        Users usuarios=VentanaAgregarUsuario.enviar();
-        usuarios.imprimirTodo();
-        if(!hashTable.isEmpty()){
-            hashTable.imprimir(usuarios);
+        try{
+            Users usuarios=VentanaAgregarUsuario.enviar();
+            usuarios.imprimirTodo();
+            if(!hashTable.isEmpty()){
+                hashTable.imprimir(usuarios);
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Algo ha salido mal, por favor intentelo de nuevo","Error",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnImprimir3ActionPerformed
 
     private void btnImprimir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir4ActionPerformed
-        
+    try{    
         NodoArbol nodo=monticuloMin.eliminarMinimo();
         String info ="";
         while(nodo!=null){
@@ -322,6 +371,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         imprimir print=new imprimir(info);
         hashTable = new Hash_table(10000);
         print.setVisible(true);
+    }
+    catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Algo ha salido mal, por favor intentelo de nuevo","Error",JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnImprimir4ActionPerformed
 
     private void btnImprimir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir5ActionPerformed
@@ -378,6 +431,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextPane jTextPane4;
     private javax.swing.JLabel reloj;
     // End of variables declaration//GEN-END:variables
 }
