@@ -18,7 +18,7 @@ public class imprimir extends javax.swing.JFrame {
     try {
         
         System.out.println("Imprimiendo");
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         } catch (Exception ignored) {}
     }
     /**

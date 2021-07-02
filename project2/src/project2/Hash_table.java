@@ -83,44 +83,24 @@ public class Hash_table {
         
         
         int posicion = hashing(usuario);
-        boolean existe = false;
-        
-        if(this.tabla[posicion] != null){
+        NodoHash temp = this.tabla[posicion];
+        if(temp != null){
             
-            NodoHash temp = this.tabla[posicion];
             if(temp.getUsuario().equals(usuario)){
-                
-                existe = true;
-                
-            }
-            
-            while(temp.getSiguiente() != null){
-                
-                temp = temp.getSiguiente();
-                if(temp.getUsuario().equals(usuario)){
-                
-                existe = true;
-                
-                }
-                
-            }
-            
-            if(!existe){
-                
                 NodoHash aux = new NodoHash(usuario,timeTag,doc);
+                while(temp.getSiguiente()!=null){
+                    temp = temp.getSiguiente();
+                }
                 temp.setSiguiente(aux);
-                
-            }
-            
+            } 
         }
-        
         else{
-            
+
             NodoHash aux = new NodoHash(usuario,timeTag,doc);
             this.tabla[posicion] = aux;
-            
+
         }
-        
+            
     }
     
     public NodoHash buscar(String nombre){
@@ -174,15 +154,19 @@ public class Hash_table {
  
     }
     
-    public void imprimir(){
-        
+    public void imprimir(Users usuarios){
         String linea = "<html><b>Usuarios y Documentos que ESTAN en cola de impresion:</b><html>"+"\n";
-        for (int i = 0; i < size_tabla; i++) {
-            if(this.tabla[i] != null){
-                linea += "usuario: "+this.tabla[i].getUsuario() + " ," +" TimeTag: "+ this.tabla[i].getTimeTag()+ " Documento: "+this.tabla[i].getDocument().getNombre();
-                
+        NodoUsers usuario = usuarios.getFirst();
+        while(usuario!=null){
+            int posicion =hashing(usuario.getUser());
+            NodoHash temp = this.tabla[posicion];
+            while(temp!=null){
+
+                linea+="Documento: "+temp.getDocument().getNombre()+" tipo: "+temp.getDocument().getTipo()+" size: "+temp.getDocument().getSize()+"\n";
+
+                temp=temp.getSiguiente();
             }
-            
+            usuario=usuario.getNext();
         }
         JOptionPane.showMessageDialog(null, linea);
     }

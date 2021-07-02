@@ -303,7 +303,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Users usuarios=VentanaAgregarUsuario.enviar();
         usuarios.imprimirTodo();
         if(!hashTable.isEmpty()){
-            hashTable.imprimir();
+            hashTable.imprimir(usuarios);
         }
     }//GEN-LAST:event_btnImprimir3ActionPerformed
 
