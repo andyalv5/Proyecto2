@@ -8,12 +8,17 @@ package Interfaces;
 import javax.swing.JFrame;
 
 /**
- *
- * @author andy
+ * Clase imprimir
+ * Esta es la clase que simula la impresión
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class imprimir extends javax.swing.JFrame {
 
-    
+    /**
+     * Método estático que pausa por 1 segundo la ejecución, esto para dar mayor realismo a
+     * la impresión de los documentos
+    */
     public static void pausa(){
     try {
         
@@ -22,7 +27,9 @@ public class imprimir extends javax.swing.JFrame {
         } catch (Exception ignored) {}
     }
     /**
+     * Constructor de la clase imprimir
      * Creates new form imprimir
+     * @param info un String con la información a imprimir
      */
     public imprimir(String info) {
         initComponents();
@@ -34,6 +41,11 @@ public class imprimir extends javax.swing.JFrame {
         
     }
 
+    /**
+     * Constructor de la clase imprimir
+     * Creates new form imprimir
+     */
+    
     private imprimir() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -106,6 +118,7 @@ public class imprimir extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Método estático main de este JFrame
      * @param args the command line arguments
      */
     public static void main(String args[]) {

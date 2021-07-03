@@ -5,25 +5,28 @@
  */
 package Interfaces;
 
-import static Interfaces.VentanaPrincipal.monticuloMin;
 import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import project2.Funciones;
-import project2.ListaDoc;
-import project2.NodoUsers;
 import project2.Users;
 import project2.NodoDoc;
 
 /**
- *
- * @author Jose
+ * Clase VentanaAgregarDocumento
+ * Esta es la clase que crea la interfaz que agrega el documento
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class VentanaAgregarDocumento extends javax.swing.JFrame {
     public static Users listaDocs;
     public static NodoDoc node;
     public static String search;
     
+    /**
+    * Método estático que envía una lista usuario que es estática
+    * @return la lista estática del usuario
+    */
     public static Users enviar(){
         Users lista= VentanaAgregarUsuario.enviar();
         if(search!=null && node!=null){
@@ -34,6 +37,7 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
     };
     
     /**
+     * Constructor de la clase VentanaAgregarDocumento
      * Creates new form VentanaAgregarDocumento
      */
     public VentanaAgregarDocumento() {
@@ -51,6 +55,11 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         
     }
 
+    /**
+     * Constructor de la clase VentanaAgregarDocumento que recibe la lista de usuarios
+     * Creates new form VentanaAgregarDocumento
+     */
+    
     VentanaAgregarDocumento(Users lista) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -190,11 +199,18 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+    * Método que contiene la información en el campo de texto nomDoc
+    */
+    
     private void nomDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomDocActionPerformed
         
     }//GEN-LAST:event_nomDocActionPerformed
 
+    /**
+    * Método que contiene el botón que agrega el documento al sistema operativo
+    */
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         try{
             Users lista= VentanaAgregarUsuario.enviar();
@@ -212,11 +228,16 @@ public class VentanaAgregarDocumento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    /**
+    * Método que contiene el JComboBox chooser
+    */
+    
     private void ChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ChooserActionPerformed
 
     /**
+     * método main de este JFrame
      * @param args the command line arguments
      */
     public static void main(String args[]) {

@@ -12,10 +12,19 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author andy
+ * Clase Funciones
+ * Esta es la clase que se utiliza para cargar y escribir los datos de un archivo txt 
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class Funciones {
+    
+    /**
+     * Método que busca en una ruta el archivo de los usuarios para cargar en el Sistema operativo
+     * @param file el parametro para buscar el csv a cargar
+     * @return El número de ítems (números aleatorios) de que consta la serie
+     */
+    
      public Users Leer_csv(File file){
         Users lista = new Users();
         String line;
@@ -53,6 +62,11 @@ public class Funciones {
         return lista; 
     }
     
+     /**
+     * Método que graba la lista dentro del sistema operativo de los usuarios almacenados en el Txt
+     * @param lista la lista de usuarios que se graban en el csv, dicha lista es
+     * modificada por el usuario dentro del sistema operativo en tiempo de ejecución
+     */
     
     public void writeTxt(Users lista){
         String txt ="";
@@ -79,6 +93,14 @@ public class Funciones {
 
     }  
     
+    /**
+     * Función que carga en el txt una lista de usuarios con uno de ellos eliminado
+     * @param toDel parámetro que busca al usuario a eliminar y lo excluye al momento
+     * de cargar los datos dentro del txt, aprovecha el recorrido para devolver los nombres
+     * para luego imprimirlos en pantalla
+     * @return String llamado users 
+     */
+    
     public String writeTxt(String toDel){
         Funciones fun = new Funciones();
         File f=new File("test//new.csv");
@@ -96,6 +118,12 @@ public class Funciones {
         writeTxt(newUserList);
         return users;
     }
+    
+    /**
+     * Método que carga en el csv una lista de usuarios con uno extra
+     * @param nodo el nodo a insertar en la lista para cargar
+     * al txt 
+     */
     
     public void writeTxt(NodoUsers nodo){
         Funciones fun = new Funciones();

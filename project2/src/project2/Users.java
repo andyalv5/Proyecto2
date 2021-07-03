@@ -9,14 +9,19 @@ import javax.swing.JOptionPane;
  */
 
 /**
- *
- * @author mkferrerteran
+ * Clase Users
+ * Esta es la clase que crea la lista de usuarios
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class Users {
     private NodoUsers first;
     private NodoUsers last;
     private int size;
 
+    /**
+     * Constructor de la lista usuarios inicializada como vacia
+     */
     
     public Users() {
         this.first = null;
@@ -24,31 +29,57 @@ public class Users {
         this.size = 0;
     }
 
+    /**
+     * Función que retorna el tamaño de la lista
+     * @return size
+     */
     public int getSize() {
         return size;
     }
 
+     /**
+     * Función que retorna al primer usuario
+     * @return first
+     */
     public NodoUsers getFirst() {
         return first;
     }
 
+     /**
+     * Método que define al primer usuario
+     * @param first
+     */
     public void setFirst(NodoUsers first) {
         this.first = first;
     }
-
+    /**
+     * Función que retorna al último usuario
+     * @return last
+     */
     public NodoUsers getLast() {
         return last;
     }
 
+    /**
+     * Método que define al último usuario
+     * @param last
+     */
     public void setLast(NodoUsers last) {
         this.last = last;
     }
 
-    
+    /**
+     * Función que retorna si la lista está vacia
+     * @return devuelve verdadero si está vacia
+     */
     public boolean isEmpty(){
         return first == null;
     }
     
+    /**
+     * Método que añade un usuario al final de la lista 
+     * @param node nodo a introducir al final
+     */
     public void addAtEnd(NodoUsers node){
         if(this.isEmpty()){
             addElementbegin(node);
@@ -61,6 +92,10 @@ public class Users {
         size ++;
     }
     
+    /**
+     * Método que añade un usuario al inicio de la lista 
+     * @param newNodo nuevo nodo a introducir
+     */
      public void addElementbegin(NodoUsers newNodo){
         if(this.isEmpty()){
             this.first=this.last= newNodo;
@@ -75,25 +110,40 @@ public class Users {
         
     }   
     
+     /**
+     * Función que retorna un String con los nombres de usuarios
+     * @return el String de usuarios
+     */
     public String returnUsers(){
-        String almacenes = "";
+        String usuarios = "";
         NodoUsers temp = this.first;
         while(temp!=null){
-            almacenes+= temp.getUser() +",";
+            usuarios+= temp.getUser() +",";
             temp = temp.getNext();
         }
-        return almacenes;
+        return usuarios;
     }
     
+    /**
+     * Función que retorna un String de la prioridad de los usuarios
+     * @return la prioridad de los usuarios
+     */
     public String returnStatus(){
-        String almacenes = "";
+        String usuarios = "";
         NodoUsers temp = this.first;
         while(temp!=null){
-            almacenes+= temp.getPriority() +",";
+            usuarios+= temp.getPriority() +",";
             temp = temp.getNext();
         }
-        return almacenes;
+        return usuarios;
     }
+    
+    /**
+     * Método que crea la lista de usuarios y los introduce directamente
+     * @param users un String de los usuarios que estan originalmente en el txt
+     * @param priority un String de la prioridad de los usuarios que esta originalmente
+     * en el txt
+     */
     
     public void createList(String users, String priority){
         String[] usuario =users.split(",");
@@ -104,6 +154,11 @@ public class Users {
         }
     }
     
+    /**
+     * Función que busca un usuario por el nombre
+     * @param searched el nombre del usuario
+     * @return el nodo del usuario si existe
+     */
     public NodoUsers BuscarUser(String searched){
         
         NodoUsers aux=this.first;
@@ -116,6 +171,10 @@ public class Users {
         return null;
     }
     
+    /**
+     * Método que elimina un usuario por el nombre 
+     * @param name
+     */
     public void delByName(String name){
         if(name.equals(this.first.getUser())){
             this.first = this.first.getNext();
@@ -136,6 +195,9 @@ public class Users {
         size--;
     }
     
+    /**
+     * Método que elimina al usuario al final de la lista
+     */
     public void delAtEnd(){
         NodoUsers temp= this.first;
         if(this.first == this.last){
@@ -150,6 +212,9 @@ public class Users {
         }
     }
     
+    /**
+     * Método que imprime en pantalla los nombres de los usuarios
+     */
     public void pntAllelmnt(){
         NodoUsers nodoTmp = this.first;
         if(this.isEmpty()){
@@ -162,6 +227,13 @@ public class Users {
         
     }
     
+    /**
+     * Función que prepara el documento para ser enviado a la lista de impresión
+     * @param search nombre del documento buscado
+     * @param aux lista de usuarios
+     * @param node nodo del documento
+     * @return la lista de usuarios actualizada
+     */
     public Users prepareDocument(String search, Users aux, NodoDoc node){
         ListaDoc doc=new ListaDoc();
         NodoUsers elem=aux.getFirst();
@@ -178,6 +250,12 @@ public class Users {
         return aux;
     }
  
+    /**
+     * Función que prepara el documento para enviarse a la cola de impresión
+     * @param aux lista de usuarios 
+     * @return la lista de los usuarios actualizada
+     */
+    
     public Users prepareDocument2(Users aux){
         Users doc=new Users();
         NodoUsers elem=aux.getFirst();
@@ -187,6 +265,10 @@ public class Users {
         }
         return doc;
     }
+    
+    /**
+     * Método que imprime los documentos y usuarios que no están en la cola de impresión
+     */
     
     public void imprimirTodo(){
         NodoUsers nodoTmp = this.first;

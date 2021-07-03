@@ -5,47 +5,22 @@
  */
 package project2;
 
-import Interfaces.VentanaImprimirDocumento;
 import Interfaces.VentanaPrincipal;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+
+
 /**
- *
- * @author andy
+ * Clase Project2
+ * Esta es la clase main del proyecto
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class Project2 {
     
     /**
+     * Clase estática del main
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Funciones fun =new Funciones();
-//        Scanner entrada = null;
-//        JFileChooser fileChooser = new JFileChooser();
-//        fileChooser.showOpenDialog(fileChooser);
-//        try{
-//            String ruta = fileChooser.getSelectedFile().getAbsolutePath();
-//            File f = new File(ruta);
-//            entrada = new Scanner(f);
-//            while (entrada.hasNext()){
-//                System.out.println(entrada.nextLine());    
-//            }    
-//        }catch (FileNotFoundException e) {
-//            System.out.println(e.getMessage());    
-//        }catch (NullPointerException e){
-//            System.out.println("NO SE HA SELECCIONADO NINGUN FICHERO");    
-//        }catch (Exception e){
-//            System.out.println(e.getMessage());
-//        }finally{
-//            if (entrada != null){
-//                entrada.close();
-//            }
-//        }    
-
         
         VentanaPrincipal inicial =new VentanaPrincipal();
         inicial.setVisible(true);

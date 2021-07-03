@@ -6,8 +6,10 @@
 package project2;
 
 /**
- *
- * @author andy
+ * Clase NodoArbol
+ * Esta es la clase que crea el Nodo del Arbol
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class NodoArbol {
     private NodoDoc data;
@@ -16,6 +18,12 @@ public class NodoArbol {
     private NodoArbol nodoDer;
     private int priority;
 
+    /**
+     * Constructor del NodoArbol
+     * @param data nodo del documento
+     * @param priority número entero que indica la posición del arbol
+     */
+    
     public NodoArbol(NodoDoc data, int priority){
         this.data=data;
         this.priority=priority;
@@ -26,6 +34,7 @@ public class NodoArbol {
     
     
     /**
+     * Función que retorna el NodoDoc
      * @return the data
      */
     public NodoDoc getData() {
@@ -33,6 +42,7 @@ public class NodoArbol {
     }
 
     /**
+     * Método que define el NodoDoc
      * @param data the data to set
      */
     public void setData(NodoDoc data) {
@@ -40,6 +50,7 @@ public class NodoArbol {
     }
 
     /**
+     * Función que retorna al padre 
      * @return the parent
      */
     public NodoArbol getParent() {
@@ -47,6 +58,7 @@ public class NodoArbol {
     }
 
     /**
+     * Método que define al padre
      * @param parent the parent to set
      */
     public void setParent(NodoArbol parent) {
@@ -54,6 +66,7 @@ public class NodoArbol {
     }
 
     /**
+     * Función que retorna al hijo izquierdo
      * @return the nodoIzq
      */
     public NodoArbol getNodoIzq() {
@@ -61,6 +74,7 @@ public class NodoArbol {
     }
 
     /**
+     * Método que define al hijo izquierdo
      * @param nodoIzq the nodoIzq to set
      */
     public void setNodoIzq(NodoArbol nodoIzq) {
@@ -68,6 +82,7 @@ public class NodoArbol {
     }
 
     /**
+     * Función que retorna al hijo derecho
      * @return the nodoDer
      */
     public NodoArbol getNodoDer() {
@@ -75,6 +90,7 @@ public class NodoArbol {
     }
 
     /**
+     * Método que define al hijo derecho
      * @param nodoDer the nodoDer to set
      */
     public void setNodoDer(NodoArbol nodoDer) {
@@ -82,6 +98,7 @@ public class NodoArbol {
     }
 
     /**
+     * Función que retorna el entero de prioridad
      * @return the priority
      */
     public int getPriority() {
@@ -89,6 +106,7 @@ public class NodoArbol {
     }
 
     /**
+     * Método que define el entero de prioridad
      * @param priority the priority to set
      */
     public void setPriority(int priority) {

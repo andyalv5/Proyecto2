@@ -13,12 +13,18 @@ import project2.NodoUsers;
 import project2.Users;
 
 /**
- *
- * @author Jose
+ * Clase VentanaAgregarUsuario
+ * Esta es la clase que crea la interfaz que agrega al usuario
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class VentanaAgregarUsuario extends javax.swing.JFrame {
     public static Users usuario;
     
+    /**
+    * Método estático que envía una lista usuario que es estática
+    * @return la lista estática del usuario
+    */
     
     public static Users enviar(){
         Funciones fun = new Funciones();
@@ -33,6 +39,7 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
     
     
     /**
+     * Constructor de VentanaAgregarUsuario
      * Creates new form VentanaAgregarUsuario
      */
     public VentanaAgregarUsuario() {
@@ -161,6 +168,11 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Método que agrega al usuario
+    * @return la lista estática del usuario
+    */
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         try{    
             Funciones fun = new Funciones();
@@ -173,12 +185,15 @@ public class VentanaAgregarUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Algo ha salido mal, por favor intentelo de nuevo","Error",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
-
+    /**
+    * Método que tiene el JComboBox sel
+    */
     private void selActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selActionPerformed
 
     /**
+     * Método estático main de este JFrame
      * @param args the command line arguments
      */
     public static void main(String args[]) {

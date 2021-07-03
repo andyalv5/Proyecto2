@@ -9,14 +9,12 @@ import static Interfaces.VentanaPrincipal.monticuloMin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import project2.Funciones;
 import project2.Hash_table;
 import project2.ListaDoc;
-import project2.MonticuloMin;
 import project2.NodoArbol;
 import project2.NodoUsers;
 import project2.NodoDoc;
@@ -24,8 +22,10 @@ import project2.Users;
 
 
 /**
- *
- * @author Jose
+ * Clase VentanaImprimirDocumento
+ * Esta es la clase que agrega los documentos a imprimir a la cola de impresión
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class VentanaImprimirDocumento extends javax.swing.JFrame {
     
@@ -56,9 +56,17 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         }
     };
 
+    /**
+    * Constructor de VentanaImprimirDocumento vacio
+    */
+    
     private VentanaImprimirDocumento() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    /**
+    * Método que actualiza el tiempo del JLabel
+    */
     
     private void actualizar(){
         String time="Dias: "+dias+" Horas: "+ (horas<=9?"0":"")+horas +" Minutos: "+ (minutos<=9?"0":"")+minutos +" Segundos: "+ (segundos<=9?"0":"")+segundos;
@@ -66,6 +74,7 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
                 
     }
     /**
+     * Constructor de VentanaImprimirDocumento que tiene el reloj incorporado
      * Creates new form VentanaImprimirDocumento
      * @param dias
      * @param horas
@@ -109,10 +118,6 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         
     }
 
-    public void sendUserList(Users usuario){
-        
-        
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -237,6 +242,10 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Método del bóton que envía los documentos a la cola de impresión
+    */
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         
@@ -276,6 +285,10 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+    * Método que detecta un cambio en el JComboBox User
+    */
+    
     private void UserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UserItemStateChanged
         documento.setEnabled(true);
         NodoUsers Nodo=this.DocumList.BuscarUser(User.getSelectedItem().toString());
@@ -291,10 +304,18 @@ public class VentanaImprimirDocumento extends javax.swing.JFrame {
         documento.setModel(new javax.swing.DefaultComboBoxModel(toSel));
     }//GEN-LAST:event_UserItemStateChanged
 
+    /**
+    * Método que contiene el JComboBox User
+    */
+    
     private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
 
     }//GEN-LAST:event_UserActionPerformed
-
+    
+    /**
+    * Método que contiene el JComboBox chooser documento
+    */
+    
     private void documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_documentoActionPerformed

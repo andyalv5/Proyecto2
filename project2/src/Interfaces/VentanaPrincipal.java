@@ -17,21 +17,33 @@ import project2.Funciones;
 import project2.Hash_table;
 import project2.MonticuloMin;
 import project2.NodoArbol;
-import project2.NodoDoc;
 import project2.Users;
 
 
 /**
- *
- * @author Jose
+ * Clase VentanaPrincipal
+ * Esta es la clase que crea la interfaz de la ventana principal
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
+
 public class VentanaPrincipal extends javax.swing.JFrame {
     public static MonticuloMin monticuloMin;
     public static Hash_table hashTable;
     
+    /**
+     * Función estática que envia el contenido de la Hash Table
+     * @return hashtable
+ */
+    
     public static Hash_table enviarHashTable(){
         return hashTable;
     };
+    
+    /**
+     * Función estática que envia el contenido del monticulo
+     * @return monticuloMin
+ */
     
     public static MonticuloMin enviarmonticuloMin(){
         return monticuloMin;
@@ -47,6 +59,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public int segundos;
     private ActionListener action =new ActionListener() {
         @Override
+        /**
+         * Método abstracto que genera un reloj 
+        */
         public void actionPerformed(ActionEvent e) {
             
             
@@ -70,7 +85,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     
     /**
-     * Creates new form VentanaPrincipal
+     * Método privado que actualiza el reloj de la ventana principal
      */
     
     
@@ -78,6 +93,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String time="Dias: "+dias+" Horas: "+ (horas<=9?"0":"")+horas +" Minutos: "+ (minutos<=9?"0":"")+minutos +" Segundos: "+ (segundos<=9?"0":"")+segundos;
         this.reloj.setText(time);
     }
+    
+    /**
+     * Constructor de VentanaPrincipal
+    */
     
     public VentanaPrincipal() {
         initComponents();
@@ -275,12 +294,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método del botón que activa el JFrame VentanaAgregarUsuario
+    */
+    
     private void btnAggUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggUsuarioActionPerformed
         // TODO add your handling code here:
         VentanaAgregarUsuario venaddus = new VentanaAgregarUsuario();
         venaddus.setVisible(true);
     }//GEN-LAST:event_btnAggUsuarioActionPerformed
 
+    /**
+     * Método del botón que activa el JFrame VentanaAgregarDocumento
+    */
+    
     private void btnAggDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggDocumentoActionPerformed
         // TODO add your handling code here:
         
@@ -292,12 +319,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btnAggDocumentoActionPerformed
 
+    /**
+     * Método del botón que activa el JFrame VentanaImprimirDocumento
+    */
+    
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         // TODO add your handling code here:
         VentanaImprimirDocumento venprint = new VentanaImprimirDocumento(this.dias,this.horas,this.minutos,this.segundos);
         venprint.setVisible(true);
     }//GEN-LAST:event_btnImprimirActionPerformed
 
+    /**
+     * Método del botón que activa el JFrame VentanaEliminarUsuario
+    */
+    
     private void btnDelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelUsuarioActionPerformed
         // TODO add your handling code here:
         
@@ -307,12 +342,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btnDelUsuarioActionPerformed
 
+    /**
+     * Método del botón que activa el JFrame VentanaEliminarDocumento
+    */
+    
     private void btnDelDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelDocumentoActionPerformed
         // TODO add your handling code here:
         VentanaEliminarDocumento vendeldoc = new VentanaEliminarDocumento();
         vendeldoc.setVisible(true);
     }//GEN-LAST:event_btnDelDocumentoActionPerformed
 
+    /**
+     * Método del botón que muestra el montículo de forma gráfica
+    */
+    
     private void btnImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir1ActionPerformed
     try{
         monticuloMin.makeAFamily();
@@ -326,6 +369,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnImprimir1ActionPerformed
 
+    /**
+     * Método del botón que carga los datos de un csv cualquiera y lo graba en el paquete test con el nombre de la ruta "test//new.csv"
+    */
+    
     private void btnImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir2ActionPerformed
         Funciones fc = new Funciones();
         JFileChooser fx = new JFileChooser();
@@ -342,6 +389,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnImprimir2ActionPerformed
 
+    /**
+     * Método que imprime los usuarios que están en el sistema operativo y sus documentos que están en la cola y los que no están
+    */
+    
     private void btnImprimir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir3ActionPerformed
         try{
             Users usuarios=VentanaAgregarUsuario.enviar();
@@ -355,6 +406,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnImprimir3ActionPerformed
 
+    /**
+     * Método del botón que simula la impresión
+    */
+    
     private void btnImprimir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir4ActionPerformed
     try{    
         NodoArbol nodo=monticuloMin.eliminarMinimo();
@@ -376,6 +431,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnImprimir4ActionPerformed
 
+    /**
+     * Método del botón que activa el JFrame EliminarDocCola
+    */
+    
     private void btnImprimir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir5ActionPerformed
         EliminarDocCola DelCola=new EliminarDocCola();
         DelCola.setVisible(true);

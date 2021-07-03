@@ -16,8 +16,10 @@ import project2.NodoDoc;
 import project2.Users;
 
 /**
- *
- * @author Jose
+ * Clase VentanaAgregarUsuario
+ * Esta es la clase que crea la interfaz que agrega al usuario
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class VentanaEliminarDocumento extends javax.swing.JFrame {
     /**
@@ -31,6 +33,9 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         return listaDrop;
     };
     
+    /**
+ * Constructor de la clase VentanaEliminarDocumento
+ */
     public VentanaEliminarDocumento() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -175,6 +180,9 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Método que elimina el documento del sistema operativo
+    */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
     try{
         NodoUsers Nodo=carpetaDoc.BuscarUser(User.getSelectedItem().toString());
@@ -201,10 +209,17 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    /**
+    * Método que contiene el JComboBox User
+    */
     private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
         
     }//GEN-LAST:event_UserActionPerformed
 
+    /**
+    * Método que detecta un cambio de estado del JComboBox User
+    */
+    
     private void UserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UserItemStateChanged
         documento.setEnabled(true);
         NodoUsers Nodo=carpetaDoc.BuscarUser(User.getSelectedItem().toString());
@@ -222,6 +237,10 @@ public class VentanaEliminarDocumento extends javax.swing.JFrame {
         
     }//GEN-LAST:event_UserItemStateChanged
 
+    /**
+    * Método que contiene el JCombobox documento
+    */
+    
     private void documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_documentoActionPerformed

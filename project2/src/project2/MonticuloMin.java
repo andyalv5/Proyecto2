@@ -12,8 +12,10 @@ import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
 
 /**
- *
- * @author andy
+ * Clase MonticuloMin
+ * Esta es la clase que crea el montículo con un Array y otro con apuntadores
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class MonticuloMin {
     private NodoArbol pRoot;
@@ -22,30 +24,59 @@ public class MonticuloMin {
     private int newMax;
     private Graph monticuloGraph;
     
-    //constructor con un maximo determinado por nostoros
+    /**
+     * Constructor con un maximo determinado por nostoros
+     * @param max el máximo de NodoArbol que admite la lista
+     */
     public MonticuloMin(int max){
         this.size=0;
         this.newMax=max;
         heap =new NodoArbol[max];
     }
-    //constructor por defecto con un maximo de 20 elementos
+    
+    /**
+     * Constructor con un máximo de 20 NodoArbol
+     */
     public MonticuloMin(){
         this.size=0;
         this.newMax=20;
         heap =new NodoArbol[20];
     }
+    /**
+     * Función que retorna la posición del padre
+     * @param i es la posición del hijo
+     * @return posición del padre
+     */
     
     public int padre(int i){
         return(i-1)/2;
     }
     
+    /**
+     * Función que retorna la posición del hijo izquierdo
+     * @param i es la posición del padre
+     * @return posición del hijo izquierdo
+     */
+    
     public int leftChild(int i){
         return ((2*i)+1);
     }
     
+    /**
+     * Función que retorna la posición del hijo derecho
+     * @param i es la posición del padre
+     * @return posición del hijo derecho
+     */
+    
     public int rightChild(int i){
         return ((2*i)+2);
     }
+    
+    /**
+     * Método que intercambia la posición del padre con el hijo para cumplir con el MinHeap del montículo
+     * @param i es la posición a evaluar para establecer al padre o al hijo en función
+     * de su nivel de prioridad
+     */
     
     public void intercambiar(int i){
         NodoArbol nuevoNodo= heap[i];
@@ -56,10 +87,19 @@ public class MonticuloMin {
         heap[i]=nuevoNodo;
     }
     
+    /**
+     * Función que retorna si el monticulo está lleno
+     * @return verdadero si se alcanzó el total admitido de NodoArbol en el montículo
+     * determinado por size
+     */
+    
     public boolean monticuloLleno(){
         return this.size==heap.length;
     }
     
+    /**
+     * Método que amplia el tamaño del heap durante tiempo de ejecución
+     */
     public void ampliar(){
         NodoArbol[] toCompare = heap;
         heap = new NodoArbol[this.size+this.newMax];
@@ -68,9 +108,19 @@ public class MonticuloMin {
         }
     }
     
+    /**
+     * Función que retorna la raíz del arbol
+     * @return la raíz
+     */
+    
     public NodoArbol returnRoot(){
         return this.heap[0];
     }
+    
+    /**
+     * Método que inserta el NodoArbol en el montículo
+     * @param data NodoArbol a introducir en el montículo
+     */
     
     public void insertar(NodoArbol data){
         if(this.monticuloLleno()){
@@ -87,6 +137,10 @@ public class MonticuloMin {
         this.size=size+1;
         
     }
+    
+    /**
+     * Método que crea desde el montículo por arrays otro montículo funcional con listas de apuntadores
+     */
     
     public void makeAFamily(){
         this.pRoot=this.heap[0];
@@ -105,6 +159,7 @@ public class MonticuloMin {
     }
 
     /**
+     * Función que retorna la raíz del montículo de apuntadores
      * @return the pRoot
      */
     public NodoArbol getpRoot() {
@@ -112,17 +167,32 @@ public class MonticuloMin {
     }
 
     /**
+     * Método que define la raíz del montículo de apuntadores
      * @param pRoot the pRoot to set
      */
     public void setpRoot(NodoArbol pRoot) {
         this.pRoot = pRoot;
     }
     
+    /**
+     * Método que crea el arco entre los nodos del padre y el hijo
+     * @param graph el grafo donde se dibuja el montículo
+     * @param padre el nodo padre
+     * @param hijo el nodo hijo
+     */
+    
     public void IndividualEdge(Graph graph, String padre,String hijo){
         graph.addEdge(padre+"-->"+hijo, padre, hijo,true);
         this.monticuloGraph=graph;
     }
 
+    /**
+     * Función que retorna si el monticulo está lleno
+     * @param graph el grafo donde se dibuja el montículo
+     * @param cualquiera el NodoArbol donde se extrae la prioridad para crear el nodo del grafo dibujado
+     * @return un node de la librería grafo necesario para construir el montículo
+     */
+    
     public Node IndividualNode(Graph graph, NodoArbol cualquiera){
        Node aux = graph.addNode(""+cualquiera.getPriority());
        aux.setAttribute("ui.label", cualquiera.getPriority());
@@ -130,6 +200,11 @@ public class MonticuloMin {
        
        return aux;
     }
+    
+    /**
+     * Función que define las características que tendrá el grafo al ser dibujado
+     * @return el grafo a dibujar
+     */
     
     public Graph controladorHeap()
     {
@@ -144,6 +219,14 @@ public class MonticuloMin {
         return graph;
     }
 
+    /**
+     * Método que define la posición de los nodos para ser dibujados en el grafo 
+     * @param toStart el NodoArbol que aporta información sobre los hijos izquierdo y derecho
+     * @param dad el nodo a dibujar 
+     * @param posx la posición en el eje de las x del nodo dibujado en el grafo 
+     * @param posy la posición en el eje de las y del nodo dibujado en el grafo 
+     */
+    
     public void paintHeap(NodoArbol toStart, Node dad,int posx,int posy){
         
         NodoArbol aux = toStart;
@@ -172,6 +255,11 @@ public class MonticuloMin {
         }
     }
     
+    /**
+     * Función que prepara y realiza el dibujo del montículo
+     * @return el grafo del montículo;
+     */
+    
     public Graph ShowHeap(){
         this.monticuloGraph =this.controladorHeap();
         int posx =0;
@@ -180,6 +268,10 @@ public class MonticuloMin {
         paintHeap(this.pRoot,father,posx,posy);
         return monticuloGraph;
     }
+    
+    /**
+     * Método que imprime todos los elementos del arbol del montículo con array
+     */
     
     public void pntAllelmnt(){
         String toPrint ="";
@@ -194,6 +286,11 @@ public class MonticuloMin {
         }
         
     }
+    
+    /**
+     * Método que hunde un nodo hasta que este sea mayor a sus hijos
+     * @param raiz 
+     */
     
     public void hundir(int raiz){
         boolean terminar=false;
@@ -222,7 +319,10 @@ public class MonticuloMin {
         }
     }
     
-    
+    /**
+     * Función que elimina el primer elemento del montículo
+     * @return el NodoArbol eliminado para ser impreso o no dependiendo el caso
+     */
     
     public NodoArbol eliminarMinimo(){
         NodoArbol rama;
@@ -240,6 +340,7 @@ public class MonticuloMin {
         return rama;
         
     }
+    
     
     public void imprimir(){
         while(this.pRoot!=null){

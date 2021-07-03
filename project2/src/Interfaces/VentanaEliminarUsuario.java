@@ -11,12 +11,13 @@ import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import project2.Funciones;
-import project2.NodoUsers;
 import project2.Users;
 
 /**
- *
- * @author Jose
+ * Clase VentanaEliminarUsuario
+ * Esta es la clase que crea la interfaz que elimina al usuario
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class VentanaEliminarUsuario extends javax.swing.JFrame {
     private String usuarios;
@@ -27,6 +28,7 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         return listaDrop;
     };
     /**
+     * Constructor de VentanaEliminarUsuario
      * Creates new form VentanaEliminarUsuario
      */
     public VentanaEliminarUsuario() {
@@ -121,6 +123,10 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Método botón que elimina al usuario
+    */
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     try{
         Funciones fun=new Funciones();
@@ -138,11 +144,16 @@ public class VentanaEliminarUsuario extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+    * Método que contiene el JComboBox Selector 
+    */
+    
     private void SelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SelectorActionPerformed
 
     /**
+     * Método estático main de este jFrame
      * @param args the command line arguments
      */
     public static void main(String args[]) {

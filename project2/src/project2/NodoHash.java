@@ -6,8 +6,10 @@
 package project2;
 
 /**
- *
- * @author andy
+ * Clase NodoHash
+ * Esta es la clase que crea el Nodo del Hash
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class NodoHash {
 
@@ -16,6 +18,13 @@ public class NodoHash {
     private int timeTag;
     private NodoDoc document;
 
+    /**
+     * Constructor del NodoHash
+     * @param usuario nombre del usuario
+     * @param timeTag etiqueta de tiemp
+     * @param document nodo del documento
+     */
+    
     public NodoHash(String usuario, int timeTag, NodoDoc document){
 
         this.siguiente = null;
@@ -26,6 +35,7 @@ public class NodoHash {
     }
 
     /**
+     * Función que retorna el siguiente Nodo Hash
      * @return the siguiente
      */
     public NodoHash getSiguiente() {
@@ -33,6 +43,7 @@ public class NodoHash {
     }
 
     /**
+     * Método que configura el siguiente Nodo Hash
      * @param siguiente the siguiente to set
      */
     public void setSiguiente(NodoHash siguiente) {
@@ -40,6 +51,7 @@ public class NodoHash {
     }
 
     /**
+     * Función que retorna el nombre del usuario
      * @return the usuario
      */
     public String getUsuario() {
@@ -47,6 +59,7 @@ public class NodoHash {
     }
 
     /**
+     * Método que define el nombre del usuario
      * @param usuario the usuario to set
      */
     public void setUsuario(String usuario) {
@@ -54,6 +67,7 @@ public class NodoHash {
     }
 
     /**
+     * Función que retorna el número de la etiqueta de tiempo
      * @return the timeTag
      */
     public int getTimeTag() {
@@ -61,6 +75,7 @@ public class NodoHash {
     }
 
     /**
+     * Método que define el número de la etiqueta de tiempo
      * @param timeTag the timeTag to set
      */
     public void setTimeTag(int timeTag) {
@@ -68,6 +83,7 @@ public class NodoHash {
     }
 
     /**
+     * Función que retorna el Nodo documento
      * @return the document
      */
     public NodoDoc getDocument() {
@@ -75,6 +91,7 @@ public class NodoHash {
     }
 
     /**
+     * Método que define el Nodo documento
      * @param document the document to set
      */
     public void setDocument(NodoDoc document) {

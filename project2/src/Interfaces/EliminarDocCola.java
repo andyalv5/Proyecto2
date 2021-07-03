@@ -17,13 +17,19 @@ import project2.NodoHash;
 import project2.Users;
 
 /**
- *
- * @author andy
+ * Clase EliminarDocCola
+ * Esta es la clase que crea la interfaz para eliminar documento de la cola
+ * @author Andy,Maria,Jose,Ulises
+ * @version 2/7/21
  */
 public class EliminarDocCola extends javax.swing.JFrame {
     
     /**
      * Creates new form EliminarDocCola
+     */
+    
+    /**
+     * Constructor para ElminarDocCola
      */
     public EliminarDocCola() {
         initComponents();
@@ -121,14 +127,25 @@ public class EliminarDocCola extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método que detecta un cambio de selección en el JComboBox User
+     */
     private void UserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UserItemStateChanged
         
     }//GEN-LAST:event_UserItemStateChanged
 
+    /**
+     * Método que tiene el JComboBox User
+     */
+    
     private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
 
     }//GEN-LAST:event_UserActionPerformed
 
+    /**
+     * Método de bóton que elimina el documento
+     */
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             NodoHash nodo=hashTable.buscar(User.getSelectedItem().toString());
@@ -153,6 +170,7 @@ public class EliminarDocCola extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
+     * es el método main de la Interfaz
      * @param args the command line arguments
      */
     public static void main(String args[]) {
